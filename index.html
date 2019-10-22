@@ -2,10 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
     <title>DnD Character Creator</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">D&D Builds</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">characters</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid justify-content-center no-gutters">
+    <div class="row" id="generalStats">
+        <div class="col-12" id="nameBlock">name</div>
+        <div class="col-12" id="ageBlock">Age</div>
+        <div class="col-12" id="raceBlock">Race</div>
+        <div class="col-12" id="classBlock">Class</div>
+        <div class="col-12" id="levelBlock">Level</div>
+        <div class="col-12" id="healthBlock">Health</div>
+    </div>
+    <div class="row" id="primaryStats">
+        <div class="col-12 row" id="mainStats">
+            <div class="col-12" id="strStat">Strength</div>
+            <div class="col-12" id="dexStat">Dexterity</div>
+            <div class="col-12" id="conStat">Constitution</div>
+            <div class="col-12" id="intStat">Intelligence</div>
+            <div class="col-12" id="wisStat">Wisdom</div>
+            <div class="col-12" id="chaStat">Charisma</div>
+        </div>
+        <div class="col-12 row" id="saveThrows">
+            <div class="col-12" id="strSave">Strength</div>
+            <div class="col-12" id="dexSave">Dexterity</div>
+            <div class="col-12" id="conSave">Constitution</div>
+            <div class="col-12" id="intSave">Intelligence</div>
+            <div class="col-12" id="wisSave">Wisdom</div>
+            <div class="col-12" id="chaSave">Charisma</div>
+        </div>
+    </div>
+    <div class="row" id="skillStats">
+        <div class="col-12" id="acroStat">Acrobatic</div>
+        <div class="col-12" id="animalStat">Animal Handling</div>
+        <div class="col-12" id="arcanaStat">Arcana</div>
+        <div class="col-12" id="athlStat">Athletics</div>
+        <div class="col-12" id="deceptStat">Deception</div>
+        <div class="col-12" id="histStat">History</div>
+        <div class="col-12" id="insightStat">Insight</div>
+        <div class="col-12" id="intimStat">Intimidation</div>
+        <div class="col-12" id="investStat">Investigation</div>
+        <div class="col-12" id="mediStat">Medicine</div>
+        <div class="col-12" id="natStat">Nature</div>
+        <div class="col-12" id="percStat">Perception</div>
+        <div class="col-12" id="perfStat">Performance</div>
+        <div class="col-12" id="persStat">Persuasion</div>
+        <div class="col-12" id="reliStat">Religion</div>
+        <div class="col-12" id="sleightStat">Sleight of Hand</div>
+        <div class="col-12" id="stealthStat">Stealth</div>
+        <div class="col-12" id="survStat">Survival</div>
+    </div>
+    <div class="row" id="backgroundInfo">
+        <div class="col-12" id="personTraits">Personality Traits</div>
+        <div class="col-12" id="idealsBlock">Ideals</div>
+        <div class="col-12" id="bondBlock">Bonds</div>
+        <div class="col-12" id="flawsBlock">Flaws</div>
+        <div class="col-12" id="langBlock">Languages</div>
+        <div class="col-12" id="langBlock">Other Proficiencies</div>
+    </div>
+    <div class="row" id="featTraits">
+        <div class="col12" id="featsBlock">Feats</div>
+        <div class="col12" id="traitsBlock">Traits</div>
+    </div>
+    <div class="row" id="Equipment">
+        <div class="col-12" id="armorBlock">armor</div>
+        <div class="col-12" id="weaponsBlock">weapons</div>
+        <div class="col-12" id="itemsBlock">Items</div>
+    </div>
+    <div class="row" id="spells">
+        <div class="col-12" id="0level">Cantrips</div>
+        <div class="col-12" id="1level">1st level</div>
+        <div class="col-12" id="2level">2nd level</div>
+        <div class="col-12" id="3level">3rd level</div>
+        <div class="col-12" id="4level">4th level</div>
+        <div class="col-12" id="5level">5th level</div>
+        <div class="col-12" id="6level">6th level</div>
+        <div class="col-12" id="7level">7th level</div>
+        <div class="col-12" id="8level">8th level</div>
+        <div class="col-12" id="9level">9th level</div>
+    </div>
+    <div class="row" id="battleBlock">
+        <div class="col-12" id="armorClass">ArmorClass</div>
+        <div class="col-12" id="initiativeBlock">Initiative</div>
+        <div class="col-12" id="weaponBlock">Weapons</div>
+        <div class="col-12" id="MagicBlock">Magics</div>
+    </div>
+</div>
 
 </body>
 </html>
