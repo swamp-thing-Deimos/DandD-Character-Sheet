@@ -20,7 +20,7 @@
     <title>DnD Character Creator</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <a class="navbar-brand" href="#">D&D Builds</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,16 +45,27 @@
     </div>
 </nav>
 
-<div class="container-fluid justify-content-center no-gutters">
-    <div class="row" id="generalStats">
-        <div class="col-12" id="nameBlock">name</div>
-        <div class="col-12" id="ageBlock">Age</div>
-        <div class="col-12" id="raceBlock">Race</div>
-        <div class="col-12" id="classBlock">Class</div>
-        <div class="col-12" id="levelBlock">Level</div>
-        <div class="col-12" id="healthBlock">Health</div>
-        <div class="col-12" id="speedBlock">Speed</div>
+<div class="container-fluid justify-content-center p-0 m-0 align-items-center ">
+<!--    first set of options-->
+    <div class="container-fluid bg-secondary">
+    <div class="card d-flex flex-column
+    justify-content-center align-items-center" id="generalStats ">
+<!--        first form-->
+        <form action="#" method="POST">
+            <div class="card form-group p-3 bg-secondary">
+                <input class="form-control" type="text" placeholder="Name" id="nameBlock"
+                name="nameBlock">
+                <input class="form-control" type="text"
+                 name="ageBlock" placeholder="Age" id="ageBlock">
+                <input class="form-control" type="text" name="raceBlock" placeholder="Race" id="raceBlock">
+                <input class="form-control" type="text" name="classBlock" placeholder="Class" id="classBlock">
+                <input class="form-control" type="text" name="levelBlock" placeholder="Level" id="levelBlock">
+                <input class="form-control" type="text" name="healthBlock" placeholder="Health" id="healthBlock">
+                <input class="form-control" type="text" name="speedBlock" placeholder="Speed" id="speedBlock">
+            </div>
+        </form>
     </div>
+        </div>
     <div class="row" id="primaryStats">
         <div class="col-12 row" id="mainStats">
             <div class="col-12" id="profStat">Proficiency Bonus</div>
