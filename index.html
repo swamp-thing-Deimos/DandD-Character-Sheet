@@ -47,24 +47,49 @@
 
 <div class="container-fluid justify-content-center p-0 m-0 align-items-center ">
 <!--    first set of options-->
-    <div class="container-fluid bg-secondary">
-    <div class="card d-flex flex-column
+<!--    TABS++++-->
+    <div class="tab-content">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#tab1">Main Stats</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#tab2">Primary Stats</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#tab3">Save Throws</a>
+        </li>
+    </ul>
+    
+<!--    tab one-->
+    <div class="tab-pane active" role="tabpanel" id="tab1">
+        <div class="container-fluid bg-secondary">
+            <div class="card d-flex flex-column
     justify-content-center align-items-center" id="generalStats ">
-<!--        first form-->
-        <form action="#" method="POST">
-            <div class="card form-group p-3 bg-secondary">
-                <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock">
-                <input class="form-control" type="text" name="ageBlock" placeholder="Age" id="ageBlock">
-                <input class="form-control" type="text" name="raceBlock" placeholder="Race" id="raceBlock">
-                <input class="form-control" type="text" name="classBlock" placeholder="Class" id="classBlock">
-                <input class="form-control" type="text" name="levelBlock" placeholder="Level" id="levelBlock">
-                <input class="form-control" type="text" name="healthBlock" placeholder="Health" id="healthBlock">
-                <input class="form-control" type="text" name="speedBlock" placeholder="Speed" id="speedBlock">
-                <button type="submit" class="btn btn-primary" id="submitGeneral">Submit General Stats</button>
+                <!--        first form-->
+                <form action="#" method="POST">
+                    <div class="card form-group p-3 bg-secondary">
+                        <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock">
+                        <input class="form-control" type="text" name="ageBlock" placeholder="Age" id="ageBlock">
+                        <input class="form-control" type="text" name="raceBlock" placeholder="Race" id="raceBlock">
+                        <input class="form-control" type="text" name="classBlock" placeholder="Class" id="classBlock">
+                        <input class="form-control" type="text" name="levelBlock" placeholder="Level" id="levelBlock">
+                        <input class="form-control" type="text" name="healthBlock" placeholder="Health" id="healthBlock">
+                        <input class="form-control" type="text" name="speedBlock" placeholder="Speed" id="speedBlock">
+                        <button type="submit" class="btn btn-primary" id="submitGeneral">Submit General Stats</button>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
         </div>
+    </div>
+    
+<!--    tab2-->
+    <div role="tabpanel" class="tab-pane"
+         id="tab2">
+        <h1>tab 2</h1>
+    </div>
+    </div>
+        <!--    PRIMARY-->
     <div class="row" id="primaryStats">
         <div class="col-12 row" id="mainStats">
             <div class="col-12" id="profStat">Proficiency Bonus</div>
@@ -143,5 +168,6 @@
 
     <script src="javascript.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 </body>
 </html>
