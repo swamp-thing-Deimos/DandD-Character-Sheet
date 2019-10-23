@@ -171,11 +171,23 @@ function setFeatTraits(e){
 
 function setEquipment(e){
     e.preventDefault();
-
+    character.equipment.armor.push(document.getElementById('armorBlock').value);
+    character.equipment.weapons.push(document.getElementById('weaponsBlock').value);
+    character.equipment.items.push(document.getElementById('itemsBlock').value);
 }
 
 function setSpells(e){
     e.preventDefault();
+    character.spells.cantrips.push(document.getElementById('0level').value);
+    character.spells.levelOne.push(document.getElementById('1level').value);
+    character.spells.levelTwo.push(document.getElementById('2level').value);
+    character.spells.levelThree.push(document.getElementById('3level').value);
+    character.spells.levelFour.push(document.getElementById('4level').value);
+    character.spells.levelFive.push(document.getElementById('5level').value);
+    character.spells.levelSix.push(document.getElementById('6level').value);
+    character.spells.levelSeven.push(document.getElementById('7level').value);
+    character.spells.levelEight.push(document.getElementById('8level').value);
+    character.spells.levelNine.push(document.getElementById('9level').value);
 }
 
 function setBattle(e){
