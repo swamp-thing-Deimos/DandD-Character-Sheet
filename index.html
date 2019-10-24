@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -20,6 +21,102 @@
     <title>DnD Character Creator</title>
 </head>
 <body>
+<!--Modal and carousel for races-->
+<div class="modal fade raceModal" tabindex="-1" role="dialog" aria-labelledby="raceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="raceCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="">
+                        <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Dwarf
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                        <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Elf
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Halfing
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                        <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Human
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Dragonborn
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Gnome
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Half-elf
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Half-orc
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="">
+                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        </a>
+                        <div class="carousel-caption">
+                            Tiefling
+                        </div>
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#raceCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#raceCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <a class="navbar-brand" href="#">D&D Builds</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -72,13 +169,13 @@
                 <!--        first form-->
                 <form action="#" method="POST">
                     <div class="card form-group p-3 bg-secondary">
-                        <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock">
-                        <input class="form-control" type="text" name="ageBlock" placeholder="Age" id="ageBlock">
-                        <input class="form-control" type="text" name="raceBlock" placeholder="Race" id="raceBlock">
-                        <input class="form-control" type="text" name="classBlock" placeholder="Class" id="classBlock">
-                        <input class="form-control" type="text" name="levelBlock" placeholder="Level" id="levelBlock">
-                        <input class="form-control" type="text" name="healthBlock" placeholder="Health" id="healthBlock">
-                        <input class="form-control" type="text" name="speedBlock" placeholder="Speed" id="speedBlock">
+                        <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock" autocomplete="off">
+                        <input class="form-control" type="text" name="ageBlock" placeholder="Age" id="ageBlock" autocomplete="off">
+                        <input class="form-control" type="text" name="raceBlock" placeholder="Race" data-toggle="modal" data-target=".raceModal" id="raceBlock" autocomplete="off">
+                        <input class="form-control" type="text" name="classBlock" placeholder="Class" id="classBlock" autocomplete="off">
+                        <input class="form-control" type="text" name="levelBlock" placeholder="Level" id="levelBlock" autocomplete="off">
+                        <input class="form-control" type="text" name="healthBlock" placeholder="Health" id="healthBlock" autocomplete="off">
+                        <input class="form-control" type="text" name="speedBlock" placeholder="Speed" id="speedBlock" autocomplete="off">
                         <button type="submit" class="btn btn-primary" id="submitGeneral">Submit General Stats</button>
                     </div>
                 </form>
@@ -95,16 +192,13 @@
                 <!--        SECOND form-->
                 <form action="#">
                     <div class="card form-group p-3 bg-secondary">
-                        <input class="form-control" type="text" name="profStat" placeholder="Proficency"
-                               id="profStat">
-                        <input class="form-control" type="text" name="strStat" placeholder="Strength" id="strStat">
-                        <input class="form-control" type="text" name="dexStat" placeholder="Dexterity" id="dexStat">
-                        <input class="form-control" type="text" name="conStat" placeholder="Constitution"
-                               id="conStat">
-                        <input class="form-control" type="text" name="intStat" placeholder="Intelligence"
-                               id="intStat">
-                        <input class="form-control" type="text" name="wisStat" placeholder="Wisdom" id="wisStat">
-                        <input class="form-control" type="text" name="chaStat" placeholder="Charisma" id="chaStat">
+                        <input class="form-control" type="text" name="profStat" placeholder="Proficency" id="profStat" autocomplete="off">
+                        <input class="form-control" type="text" name="strStat" placeholder="Strength" id="strStat" autocomplete="off">
+                        <input class="form-control" type="text" name="dexStat" placeholder="Dexterity" id="dexStat" autocomplete="off">
+                        <input class="form-control" type="text" name="conStat" placeholder="Constitution" id="conStat" autocomplete="off">
+                        <input class="form-control" type="text" name="intStat" placeholder="Intelligence" id="intStat" autocomplete="off">
+                        <input class="form-control" type="text" name="wisStat" placeholder="Wisdom" id="wisStat" autocomplete="off">
+                        <input class="form-control" type="text" name="chaStat" placeholder="Charisma" id="chaStat" autocomplete="off">
                         <button type="submit" class="btn btn-primary" id="submitPrimary">Submit Primary Stats</button>
                     </div>
                 </form>
@@ -120,42 +214,24 @@
                             <!--        SECOND form-->
                             <form action="#">
                                 <div class="card form-group p-3 bg-secondary d-flex">
-                                    <input class="form-control" type="text" name="acroStat" placeholder="Acrobatic"
-                                           id="acroStat">
-                                    <input class="form-control" type="text" name="animalStat" placeholder="Animal Handling"
-                                           id="animalStat">
-                                    <input class="form-control" type="text" name="arcanaStat" placeholder="Arrcana"
-                                           id="arcanaStat">
-                                    <input class="form-control" type="text" name="acroStat" placeholder="Acrobatic"
-                                           id="acroStat">
-                                    <input class="form-control" type="text" name="deceptStat" placeholder="Deception"
-                                           id="deceptStat">
-                                    <input class="form-control" type="text" name="histStat" placeholder="History"
-                                           id="histStat">
-                                    <input class="form-control" type="text" name="insightStat" placeholder="Insight"
-                                           id="insightStat">
-                                    <input class="form-control" type="text" name="intimStat" placeholder="Intimidation"
-                                           id="intimStat">
-                                    <input class="form-control" type="text" name="investStat" placeholder="Investigation"
-                                           id="investStat">
-                                    <input class="form-control" type="text" name="mediStat" placeholder="Medicine"
-                                           id="mediStat">
-                                    <input class="form-control" type="text" name="natStat" placeholder="Nature"
-                                           id="natStat">
-                                    <input class="form-control" type="text" name="percStat" placeholder="Perception"
-                                           id="percStat">
-                                    <input class="form-control" type="text" name="perfStat" placeholder="Performance"
-                                           id="perfStat">
-                                    <input class="form-control" type="text" name="persStat" placeholder="Persuasion"
-                                           id="persStat">
-                                    <input class="form-control" type="text" name="reliStat" placeholder="Religion"
-                                           id="reliStat">
-                                    <input class="form-control" type="text" name="sleightStat" placeholder="Sleight of Hand"
-                                           id="sleightStat">
-                                    <input class="form-control" type="text" name="stealthStat" placeholder="Stealth"
-                                           id="stealthStat">
-                                    <input class="form-control" type="text" name="survStat" placeholder="Survival"
-                                           id="survStat">
+                                    <input class="form-control" type="text" name="acroStat" placeholder="Acrobatic" id="acroStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="animalStat" placeholder="Animal Handling" id="animalStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="arcanaStat" placeholder="Arrcana" id="arcanaStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="acroStat" placeholder="Acrobatic" id="acroStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="deceptStat" placeholder="Deception" id="deceptStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="histStat" placeholder="History" id="histStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="insightStat" placeholder="Insight" id="insightStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="intimStat" placeholder="Intimidation" id="intimStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="investStat" placeholder="Investigation" id="investStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="mediStat" placeholder="Medicine" id="mediStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="natStat" placeholder="Nature" id="natStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="percStat" placeholder="Perception" id="percStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="perfStat" placeholder="Performance" id="perfStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="persStat" placeholder="Persuasion" id="persStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="reliStat" placeholder="Religion" id="reliStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="sleightStat" placeholder="Sleight of Hand" id="sleightStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="stealthStat" placeholder="Stealth" id="stealthStat" autocomplete="off">
+                                    <input class="form-control" type="text" name="survStat" placeholder="Survival" id="survStat" autocomplete="off">
                                     <button type="submit" class="btn btn-primary" id="submitSkills">Submit Skills
                                         Stats</button>                        </div>
                             </form>
