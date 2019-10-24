@@ -51,13 +51,16 @@
     <div class="tab-content">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" href="#tab1">Main Stats</a>
+            <a class="nav-link active" href="#tab1"
+               data-toggle="tab">Main Stats</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#tab2">Primary Stats</a>
+            <a class="nav-link" href="#tab2"
+               data-toggle="tab">Primary Stats</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#tab3">Save Throws</a>
+            <a class="nav-link" href="#tab3"
+               data-toggle="tab">Save Throws</a>
         </li>
     </ul>
     
@@ -86,49 +89,93 @@
 <!--    tab2-->
     <div role="tabpanel" class="tab-pane"
          id="tab2">
-        <h1>tab 2</h1>
-    </div>
-    </div>
-        <!--    PRIMARY-->
-    <div class="row" id="primaryStats">
-        <div class="col-12 row" id="mainStats">
-            <div class="col-12" id="profStat">Proficiency Bonus</div>
-            <div class="col-12" id="strStat">Strength</div>
-            <div class="col-12" id="dexStat">Dexterity</div>
-            <div class="col-12" id="conStat">Constitution</div>
-            <div class="col-12" id="intStat">Intelligence</div>
-            <div class="col-12" id="wisStat">Wisdom</div>
-            <div class="col-12" id="chaStat">Charisma</div>
+        <div class="container-fluid bg-secondary">
+            <div class="card d-flex flex-column
+    justify-content-center align-items-center" id="generalStats ">
+                <!--        SECOND form-->
+                <form action="#">
+                    <div class="card form-group p-3 bg-secondary">
+                        <input class="form-control" type="text" name="profStat" placeholder="Proficency"
+                               id="profStat">
+                        <input class="form-control" type="text" name="strStat" placeholder="Strength" id="strStat">
+                        <input class="form-control" type="text" name="dexStat" placeholder="Dexterity" id="dexStat">
+                        <input class="form-control" type="text" name="conStat" placeholder="Constitution"
+                               id="conStat">
+                        <input class="form-control" type="text" name="intStat" placeholder="Intelligence"
+                               id="intStat">
+                        <input class="form-control" type="text" name="wisStat" placeholder="Wisdom" id="wisStat">
+                        <input class="form-control" type="text" name="chaStat" placeholder="Charisma" id="chaStat">
+                        <button type="submit" class="btn btn-primary" id="submitPrimary">Submit Primary Stats</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-12 row" id="saveThrows">
-            <div class="col-12" id="strSave">Strength</div>
-            <div class="col-12" id="dexSave">Dexterity</div>
-            <div class="col-12" id="conSave">Constitution</div>
-            <div class="col-12" id="intSave">Intelligence</div>
-            <div class="col-12" id="wisSave">Wisdom</div>
-            <div class="col-12" id="chaSave">Charisma</div>
+    </div>
+        <div role="tabpanel" class="tab-pane"
+             id="tab3">
+            <div class="container-fluid bg-secondary">
+                <div class="row">
+                    <div class="col-sm-4 p-0 m-0">
+                        <div id="generalStats p-0 m-o">
+                            <!--        SECOND form-->
+                            <form action="#">
+                                <div class="card form-group p-3 bg-secondary d-flex">
+                                    <input class="form-control" type="text" name="acroStat" placeholder="Acrobatic"
+                                           id="acroStat">
+                                    <input class="form-control" type="text" name="animalStat" placeholder="Animal Handling"
+                                           id="animalStat">
+                                    <input class="form-control" type="text" name="arcanaStat" placeholder="Arrcana"
+                                           id="arcanaStat">
+                                    <input class="form-control" type="text" name="acroStat" placeholder="Acrobatic"
+                                           id="acroStat">
+                                    <input class="form-control" type="text" name="deceptStat" placeholder="Deception"
+                                           id="deceptStat">
+                                    <input class="form-control" type="text" name="histStat" placeholder="History"
+                                           id="histStat">
+                                    <input class="form-control" type="text" name="insightStat" placeholder="Insight"
+                                           id="insightStat">
+                                    <input class="form-control" type="text" name="intimStat" placeholder="Intimidation"
+                                           id="intimStat">
+                                    <input class="form-control" type="text" name="investStat" placeholder="Investigation"
+                                           id="investStat">
+                                    <input class="form-control" type="text" name="mediStat" placeholder="Medicine"
+                                           id="mediStat">
+                                    <input class="form-control" type="text" name="natStat" placeholder="Nature"
+                                           id="natStat">
+                                    <input class="form-control" type="text" name="percStat" placeholder="Perception"
+                                           id="percStat">
+                                    <input class="form-control" type="text" name="perfStat" placeholder="Performance"
+                                           id="perfStat">
+                                    <input class="form-control" type="text" name="persStat" placeholder="Persuasion"
+                                           id="persStat">
+                                    <input class="form-control" type="text" name="reliStat" placeholder="Religion"
+                                           id="reliStat">
+                                    <input class="form-control" type="text" name="sleightStat" placeholder="Sleight of Hand"
+                                           id="sleightStat">
+                                    <input class="form-control" type="text" name="stealthStat" placeholder="Stealth"
+                                           id="stealthStat">
+                                    <input class="form-control" type="text" name="survStat" placeholder="Survival"
+                                           id="survStat">
+                                    <button type="submit" class="btn btn-primary" id="submitSkills">Submit Skills
+                                        Stats</button>                        </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-1">+</div>
+                    <div class="col-sm-4 bg-light">misc</div>
+                    <div class="col-sm-1">=</div>
+                    <div class="col-sm-2 bg-light">modify</div>
+                </div>
+            </div>
         </div>
+
     </div>
-    <div class="row" id="skillStats">
-        <div class="col-12" id="acroStat">Acrobatic</div>
-        <div class="col-12" id="animalStat">Animal Handling</div>
-        <div class="col-12" id="arcanaStat">Arcana</div>
-        <div class="col-12" id="athlStat">Athletics</div>
-        <div class="col-12" id="deceptStat">Deception</div>
-        <div class="col-12" id="histStat">History</div>
-        <div class="col-12" id="insightStat">Insight</div>
-        <div class="col-12" id="intimStat">Intimidation</div>
-        <div class="col-12" id="investStat">Investigation</div>
-        <div class="col-12" id="mediStat">Medicine</div>
-        <div class="col-12" id="natStat">Nature</div>
-        <div class="col-12" id="percStat">Perception</div>
-        <div class="col-12" id="perfStat">Performance</div>
-        <div class="col-12" id="persStat">Persuasion</div>
-        <div class="col-12" id="reliStat">Religion</div>
-        <div class="col-12" id="sleightStat">Sleight of Hand</div>
-        <div class="col-12" id="stealthStat">Stealth</div>
-        <div class="col-12" id="survStat">Survival</div>
-    </div>
+
+    
+    
+    
+    
     <div class="row" id="backgroundInfo">
         <div class="col-12" id="personTraits">Personality Traits</div>
         <div class="col-12" id="idealsBlock">Ideals</div>
@@ -168,6 +215,8 @@
 
     <script src="characterObjects.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="./modifiers.js"></script>
+<script src="./pageActions.js"></script>
 
 </body>
 </html>
