@@ -25,11 +25,10 @@ function diceRoll(pickedDice){
             return false;
     }
 
-
 }
 
-function proficiencyCheck() {
-    let charLevel = 5; //pull level from object
+function proficiencyBonusNumber() {
+    let charLevel = parseInt(character.generalStats.level); //pull level from object
     if (parseInt(charLevel) >16 && parseInt(charLevel) <= 20){
         return 6;
     }else if (parseInt(charLevel) <= 16 && parseInt(charLevel) > 12){
@@ -51,7 +50,7 @@ function criticalCheck(roll) {
 }
 
 function addMod(isProficient, baseMod){
-    return isProficient ? baseMod + proficiencyCheck() : baseMod;
+    return isProficient ? baseMod + proficiencyBonusNumber() : baseMod;
 }
 
 function levelCheck(charlevel) {
@@ -96,12 +95,12 @@ function calcMod(charStat, bonusMod) {
 
 // attack rolls
 function attackModifier(mainStatModifier) {
-    return parseInt(mainStatModifier)+ proficiencyCheck();
+    return parseInt(mainStatModifier)+ proficiencyBonusNumber();
 }
 //damage modifier (note: damage modifier is just the primary stat modifier used for that weapon type.
 //spell save DC
 function spellSaveDC(abilityModifier, specialMod) {
-    return 8+parseInt(abilityModifier)+proficiencyCheck()+parseInt(specialMod);
+    return 8+parseInt(abilityModifier)+proficiencyBonusNumber()+parseInt(specialMod);
 }
 
 
@@ -109,17 +108,39 @@ function spellSaveDC(abilityModifier, specialMod) {
 
 
 // modifiers that use str: Athletics, extra: melee attacks
-//example:
+
+var athleticBox = document.getElementById("athlStat");
+
+
 
 // modifiers that use dex: Acrobatics, Sleight of hand, Stealth, extra: ranged attacks
+var acrobaticsBox = document.getElementById("acroStat");
+var SlightOfHandBox = document.getElementById("sleightStat");
+var stealthBox = document.getElementById("stealthStat");
 
 // modifiers that use Constitution: N/A
 
 // modifiers that use Int: Arcana, History, Investigation, Nature, Religion
+var arcanaBox = document.getElementById("arcanaStat");
+var historyBox = document.getElementById("histStat");
+var investigationBox = document.getElementById("investStat");
+var natureBox = document.getElementById("natStat");
+var religionBox = document.getElementById("reliStat");
 
 // modifiers that use Wisdom: Animal Handling, Insight, Medicine, Perception, Survival, extra: passive perception
+var animalHandlingBox = document.getElementById("animalStat");
+var insightBox = document.getElementById("insightStat");
+var medicineBox = document.getElementById("mediStat");
+var perceptionBox = document.getElementById("percStat");
+var survivalBox = document.getElementById("survStat");
+
 
 // modifiers that use charisma: Deception, intimidation, Performance, Persuasion
+var deceptionBox = document.getElementById("deceptStat");
+var intimidationBox = document.getElementById("intimStat");
+var performanceBox = document.getElementById("perfStat");
+var persuasionBox = document.getElementById("persStat");
+
 
 
 //optionals:
@@ -129,7 +150,36 @@ function healthRoll(startingLevel,hitDie, conMod) {
     return startingLevel*diceRoll(hitDie) + conMod;
 }
 
+// object functions
+function runModifierCalc() {
+    character.savingThrowModifier.strength = calcMod(character.primaryStats.strength, proficiencyBonusNumber());
+    character.savingThrowModifier.dexterity = calcMod(character.primaryStats.dexterity, proficiencyBonusNumber());
+    character.savingThrowModifier.constitution = calcMod(character.primaryStats.constitution, proficiencyBonusNumber());
+    character.savingThrowModifier.intelligence = calcMod(character.primaryStats.intelligence, proficiencyBonusNumber());
+    character.savingThrowModifier.wisdom = calcMod(character.primaryStats.wisdom, proficiencyBonusNumber());
+    character.savingThrowModifier.charisma = calcMod(character.primaryStats.charisma, proficiencyBonusNumber());
+}
 
+function runSkillModifierCheck() {
+    character.skillStats.acrobatics = addMod(character.savingThrowModifier.dexterity, false);
+    character.skillStats.animalHandling = addMod(character.savingThrowModifier.wisdom, false);
+    character.skillStats.arcana = addMod(character.savingThrowModifier.intelligence, false);
+    character.skillStats.athletics = addMod(character.savingThrowModifier.strength, false);
+    character.skillStats.deception = addMod(character.savingThrowModifier.charisma, false);
+    character.skillStats.history = addMod(character.savingThrowModifier.intelligence, false);
+    character.skillStats.insight = addMod(character.savingThrowModifier.wisdom, false);
+    character.skillStats.intimidation = addMod(character.savingThrowModifier.charisma, false);
+    character.skillStats.investigation = addMod(character.savingThrowModifier.intelligence, false);
+    character.skillStats.medicine = addMod(character.savingThrowModifier.wisdom, false);
+    character.skillStats.nature = addMod(character.savingThrowModifier.intelligence, false);
+    character.skillStats.perception = addMod(character.savingThrowModifier.wisdom, false);
+    character.skillStats.performance = addMod(character.savingThrowModifier.charisma, false);
+    character.skillStats.persuasion = addMod(character.savingThrowModifier.charisma, false);
+    character.skillStats.religion = addMod(character.savingThrowModifier.intelligence, false);
+    character.skillStats.sleight = addMod(character.savingThrowModifier.dexterity, false);
+    character.skillStats.stealth = addMod(character.savingThrowModifier.dexterity, false);
+    character.skillStats.survival = addMod(character.savingThrowModifier.wisdom, false);
+}
 
 
 
