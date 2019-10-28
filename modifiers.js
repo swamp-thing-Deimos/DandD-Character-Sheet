@@ -49,7 +49,7 @@ function criticalCheck(roll) {
     return parseInt(roll) === 1 ? "Critical Failure" : parseInt(roll) === 20 ? "Critical Success" : false;
 }
 
-function addMod(isProficient, baseMod){
+function addMod(baseMod,isProficient){
     return isProficient ? baseMod + proficiencyBonusNumber() : baseMod;
 }
 
@@ -151,13 +151,22 @@ function healthRoll(startingLevel,hitDie, conMod) {
 }
 
 // object functions
-function runModifierCalc() {
-    character.savingThrowModifier.strength = calcMod(character.primaryStats.strength, proficiencyBonusNumber());
-    character.savingThrowModifier.dexterity = calcMod(character.primaryStats.dexterity, proficiencyBonusNumber());
-    character.savingThrowModifier.constitution = calcMod(character.primaryStats.constitution, proficiencyBonusNumber());
-    character.savingThrowModifier.intelligence = calcMod(character.primaryStats.intelligence, proficiencyBonusNumber());
-    character.savingThrowModifier.wisdom = calcMod(character.primaryStats.wisdom, proficiencyBonusNumber());
-    character.savingThrowModifier.charisma = calcMod(character.primaryStats.charisma, proficiencyBonusNumber());
+function runMainStatCalc() {
+    character.savingThrowModifier.strength = calcMod(character.primaryStats.strength, 0);
+    character.savingThrowModifier.dexterity = calcMod(character.primaryStats.dexterity, 0);
+    character.savingThrowModifier.constitution = calcMod(character.primaryStats.constitution, 0);
+    character.savingThrowModifier.intelligence = calcMod(character.primaryStats.intelligence, 0);
+    character.savingThrowModifier.wisdom = calcMod(character.primaryStats.wisdom, 0);
+    character.savingThrowModifier.charisma = calcMod(character.primaryStats.charisma, 0);
+}
+
+function runMainProStat() {
+    character.savingThrowModifier.strength = addMod(character.primaryStats.strength, false);
+    character.savingThrowModifier.dexterity = addMod(character.primaryStats.dexterity, false);
+    character.savingThrowModifier.constitution = addMod(character.primaryStats.constitution, false);
+    character.savingThrowModifier.intelligence = addMod(character.primaryStats.intelligence, false);
+    character.savingThrowModifier.wisdom = addMod(character.primaryStats.wisdom, false);
+    character.savingThrowModifier.charisma = addMod(character.primaryStats.charisma, false);
 }
 
 function runSkillModifierCheck() {
@@ -180,6 +189,7 @@ function runSkillModifierCheck() {
     character.skillStats.stealth = addMod(character.savingThrowModifier.dexterity, false);
     character.skillStats.survival = addMod(character.savingThrowModifier.wisdom, false);
 }
+
 
 
 
