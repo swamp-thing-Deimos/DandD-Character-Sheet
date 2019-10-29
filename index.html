@@ -10,6 +10,7 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/dice.css">
+    <link rel="stylesheet" href="./css/index.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -172,16 +173,20 @@
                 <a class="nav-link" href="#tab3"
                    data-toggle="tab">Save Throws</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab4"
+                   data-toggle="tab">Background Info</a>
+            </li>
         </ul>
 
         <!--    tab one-->
         <div class="tab-pane active" role="tabpanel" id="tab1">
             <div class="container-fluid bg-secondary d-flex justify-content-center">
-                <div class="card d-flex flex-column w-50 p-5
+                <div class="d-flex flex-column  p-5
     justify-content-center align-items-center" id="generalStats ">
                     <!--        first form-->
                     <form action="#" method="POST">
-                        <div class="card form-group p-3 bg-secondary">
+                        <div class="card form-group p-3 bg-warning">
                             <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock" autocomplete="off">
                             <input class="form-control" type="text" name="ageBlock" placeholder="Age" id="ageBlock" autocomplete="off">
                             <input class="form-control" type="text" name="raceBlock" placeholder="Race" data-toggle="modal" data-target=".raceModal" id="raceBlock" autocomplete="off">
@@ -199,12 +204,13 @@
         <!--    tab2-->
         <div role="tabpanel" class="tab-pane"
              id="tab2">
-            <div class="container-fluid bg-secondary d-flex justify-content-center">
-                <div class="card d-flex flex-column w-50 p-5
-    justify-content-center align-items-center" id="primaryStats ">
+            <div class="container-fluid bg-secondary d-flex justify-content-center row m-auto">
+                <div class="d-flex flex-column p-5
+    justify-content-center align-items-center
+    col-md-6 col-sm-12 " id="primaryStats ">
                     <!--        SECOND form-->
                     <form action="#">
-                        <div class="card form-group p-3 bg-secondary">
+                        <div class=" card form-group p-3 bg-warning">
                             <input class="form-control" type="text" name="profStat" placeholder="Proficency" id="profStat" autocomplete="off">
                             <input class="form-control" type="text" name="strStat" placeholder="Strength" id="strStat" autocomplete="off">
                             <input class="form-control" type="text" name="dexStat" placeholder="Dexterity" id="dexStat" autocomplete="off">
@@ -216,11 +222,17 @@
                         </div>
                     </form>
                 </div>
+<!--                eend-->
+                <div class=" d-flex flex-column
+    justify-content-center align-items-center col-md-6 d-xs-none" id="primaryStats">
+HERE
+                </div>
             </div>
         </div>
         <div role="tabpanel" class="tab-pane"
              id="tab3">
-            <div class="container-fluid bg-secondary">
+            <div class="container-fluid bg-secondary overflow-auto"
+                    style="height: 400px">
                 <div class="row">
                     <div class="col-sm-12 p-0 m-0">
                         <div id="generalStats p-0 m-o">
@@ -397,6 +409,10 @@
                 </div>
             </div>
         </div>
+        <div role="tabpanel" class="tab-pane bg-secondary"
+             id="tab4">
+            <h1>TAB 4</h1>
+        </div>
 
     </div>
 
@@ -449,3 +465,5 @@
 
 </body>
 </html>
+
+https://media.dnd.wizards.com/images/head-banner/04-PRODUCT-INFO_Tabletop_Hero_PHB.jpg
