@@ -60,7 +60,7 @@ function levelCheck(charlevel) {
 // push modifiers into object
 //calculate mod first (bonus mod is 0 at this point and is not important for the moment)
 function calcMod(charStat, bonusMod) {
-
+    charStat = checkAndFixPrimaryStats(charStat);
     let statTotal = charStat + bonusMod;
     let modStat = 0;
     if (statTotal >= 20) {
@@ -91,6 +91,16 @@ function calcMod(charStat, bonusMod) {
         modStat = -5;
     }
     return modStat;
+}
+
+function checkAndFixPrimaryStats(stat) {
+    if (stat > 20){
+         return 20;
+    }else if( stat < 1){
+        return 1;
+    }else {
+        return stat;
+    }
 }
 
 // attack rolls
@@ -151,6 +161,14 @@ function healthRoll(startingLevel,hitDie, conMod) {
 }
 
 // object functions
+function primaryStatsFixer() {
+    character.primaryStats.strength = checkAndFixPrimaryStats(character.primaryStats.strength);
+    character.primaryStats.dexterity = checkAndFixPrimaryStats(character.primaryStats.dexterity);
+    character.primaryStats.constitution = checkAndFixPrimaryStats(character.primaryStats.constitution);
+    character.primaryStats.intelligence = checkAndFixPrimaryStats(character.primaryStats.intelligence);
+    character.primaryStats.wisdom = checkAndFixPrimaryStats(character.primaryStats.wisdom);
+    character.primaryStats.charisma = checkAndFixPrimaryStats(character.primaryStats.charisma);
+}
 function runMainStatCalc() {
     character.savingThrowModifier.strength = calcMod(character.primaryStats.strength, 0);
     character.savingThrowModifier.dexterity = calcMod(character.primaryStats.dexterity, 0);
@@ -189,6 +207,8 @@ function runSkillModifierCheck() {
     character.skillStats.stealth = addMod(character.savingThrowModifier.dexterity, false);
     character.skillStats.survival = addMod(character.savingThrowModifier.wisdom, false);
 }
+
+
 
 
 
