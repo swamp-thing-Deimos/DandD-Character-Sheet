@@ -155,6 +155,38 @@ var persuasionBox = document.getElementById("persStat");
 
 //optionals:
 // hit dice rolls
+function pullClassHitDice(charClass){
+    switch (charClass) {
+        case 'fighter':
+            return playerClasses.fighter.hitDice;
+        case 'warlock':
+            return playerClasses.warlock.hitDice;
+        case 'wizard':
+            return playerClasses.wizard.hitDice;
+        case 'monk':
+            return playerClasses.monk.hitDice;
+        case 'bard':
+            return playerClasses.bard.hitDice;
+        case 'barbarian':
+            return playerClasses.barbarian.hitDice;
+        case 'rogue':
+            return playerClasses.rogue.hitDice;
+        case 'ranger':
+            return playerClasses.ranger.hitDice;
+        case 'druid':
+            return playerClasses.druid.hitDice;
+        case 'paladin':
+            return playerClasses.paladin.hitDice;
+        case 'sorcerer':
+            return playerClasses.sorcerer.hitDice;
+        case 'cleric':
+            return playerClasses.cleric.hitDice;
+        default:
+            alert("ERROR: " + charClass + " is not a valid character class");
+            return 0;
+    }
+
+}
 
 function healthRoll(startingLevel,hitDie, conMod) {
     return startingLevel*diceRoll(hitDie) + conMod;
