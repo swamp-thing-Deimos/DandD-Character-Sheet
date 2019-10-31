@@ -120,28 +120,8 @@
 
 <!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand" href="#">D&D Builds</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">characters</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">login</a>
-            </li>
-        </ul>
-    </div>
+    <div class="navbar-brand h1 text-warning" href="#">D&D Builds</div>
+
 </nav>
 <!--DICE-->
 <div class='container'>
@@ -217,6 +197,7 @@
                 <a class="nav-link" href="#tab5"
                    data-toggle="tab">Traits and Equipment</a>
             </li>
+
         </ul>
         
         <!--    tab one-->
@@ -509,88 +490,120 @@
         </div>
         
         <!--        tab5-->
-<!--        FEATURES-->
+        <!--        FEATURES-->
         <div role="tabpanel" class="tab-pane bg-secondary"
              id="tab5">
             <div class="row">
-            <div class="col-6" id="featTraits">
-                <form action="#" >
-                    <div class=" card form-group p-3 bg-warning">
-                        <input type="text" id="featsBlock" placeholder="Feats">
-                        <input type="text" id="traitsBlock" placeholder="Traits">
-                        <button type="submit" class="btn btn-primary" id="submitFeatTraits">Submit Feature Traits
-                        </button>
-                    </div>
-                </form>
-    
-<!--    EQUPMENT-->
-                <form action="#" >
-                    <div class=" card form-group p-3 bg-warning">
-                        <input type="text" id="armorBlock" placeholder="Armor">
-                        <input type="text" id="weaponsBlock" placeholder="Weapons">
-                        <input type="text" id="itemsBlock" placeholder="Items">
-                        <button type="submit" class="btn btn-primary" id="submitEquipment">Submit Equipment
-                        </button>
-                    </div>
-                </form>
+                <div class="col-6" id="featTraits">
+                    <form action="#">
+                        <div class=" card form-group p-3 bg-warning">
+                            <input type="text" id="featsBlock" placeholder="Feats">
+                            <input type="text" id="traitsBlock" placeholder="Traits">
+                            <button type="submit" class="btn btn-primary" id="submitFeatTraits">Submit Feature Traits
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!--    EQUPMENT-->
+                    <form action="#">
+                        <div class=" card form-group p-3 bg-warning">
+                            <input type="text" id="armorBlock" placeholder="Armor">
+                            <input type="text" id="weaponsBlock" placeholder="Weapons">
+                            <input type="text" id="itemsBlock" placeholder="Items">
+                            <button type="submit" class="btn btn-primary" id="submitEquipment">Submit Equipment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!--            second half-->
+                <div class="col-6" id="battleBlock">
+                    <form action="#">
+                        <div class=" card form-group p-3 bg-warning">
+                            <input type="text" id="armorClass"
+                                   placeholder="Armor Class">
+                            <input type="text" id="initiativeBlock"
+                                   placeholder="Initiative">
+                            <input type="text" id="weaponBlock"
+                                   placeholder="Weapons">
+                            <input type="text" id="magicBlock"
+                                   placeholder="Magics">
+                            <button type="submit" class="btn btn-primary" id="submitBattleBloock">Submit Battle Block
+                            </button>
+                        
+                        </div>
+                    </form>
+                </div>
             </div>
             
-<!--            second half-->
-            <div class="col-6" id="battleBlock">
-                <form action="#" >
-                    <div class=" card form-group p-3 bg-warning">
-                        <input type="text" id="armorClass"
-                               placeholder="Armor Class">
-                        <input type="text" id="initiativeBlock"
-                        placeholder="Initiative">
-                        <input type="text" id="weaponBlock"
-                        placeholder="Weapons">
-                        <input type="text" id="magicBlock"
-                        placeholder="Magics">
-                        <button type="submit" class="btn btn-primary" id="submitBattleBloock">Submit Battle Block
-                        </button>
-
-                    </div>
-                </form>
-            </div>
         </div>
-        </div>
-<!--end tab 5-->
 
+        <!--end tab 5-->
         
         <!--            end-->
     </div>
     
     
+    <!--    DROPDOWN-->
+    <p>
+        <button class="btn btn-primary" data-toggle="collapse" href="#spells" role="button">
+            Spells
+        </button>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#spellSuggestions">
+            Spell Suggestions
+        </button>
 
-    <div class="row" id="spells">
-        <div class="col-12" id="0level">Cantrips</div>
-        <div class="col-12" id="1level">1st level</div>
-        <div class="col-12" id="2level">2nd level</div>
-        <div class="col-12" id="3level">3rd level</div>
-        <div class="col-12" id="4level">4th level</div>
-        <div class="col-12" id="5level">5th level</div>
-        <div class="col-12" id="6level">6th level</div>
-        <div class="col-12" id="7level">7th level</div>
-        <div class="col-12" id="8level">8th level</div>
-        <div class="col-12" id="9level">9th level</div>
+    </p>
+    <div class="collapse" id="spells">
+        <div class="card card-body overflow-auto h-75">
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="0level">
+                    <small id="0levelHelp" class="form-text text-muted">Cantrips</small>
+                    <input type="text" class="form-control" id="1level">
+                    <small id="1levelHelp" class="form-text text-muted">1st Level</small>
+                    <input type="text" class="form-control" id="2level">
+                    <small id="2levelHelp" class="form-text text-muted">2nd Level</small>
+                    <input type="text" class="form-control" id="3level">
+                    <small id="3levelHelp" class="form-text text-muted">3rd Level</small>
+                    <input type="text" class="form-control" id="4level">
+                    <small id="4levelHelp" class="form-text text-muted">4th Level</small>
+                    <input type="text" class="form-control" id="5level">
+                    <small id="5levelHelp" class="form-text text-muted">5th Level</small>
+                    <input type="text" class="form-control" id="6level">
+                    <small id="6levelHelp" class="form-text text-muted">6th Level</small>
+                    <input type="text" class="form-control" id="7level">
+                    <small id="5levelHelp" class="form-text text-muted">7th Level</small>
+                    <input type="text" class="form-control" id="8level">
+                    <small id="8levelHelp" class="form-text text-muted">8th Level</small>
+                    <input type="text" class="form-control" id="9level">
+                    <small id="9levelHelp" class="form-text text-muted">9th Level</small>
+                    <button class="btn btn-primary my-3"
+                    id="submitSpells">
+                        Submit Spells
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="row" id="battleBlock">
-        <div class="col-12" id="armorClass">ArmorClass</div>
-        <div class="col-12" id="initiativeBlock">Initiative</div>
-        <div class="col-12" id="weaponBlock">Weapons</div>
-        <div class="col-12" id="magicBlock">Magics</div>
+    <div class="collapse" id="spellSuggestions">
+        <h1>TWO</h1>
     </div>
 </div>
+
+
+
+
+
 
 <script src="characterObjects.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="./modifiers.js"></script>
 <script src="./js/dice.js"></script>
+<script src="./js/spells.js"></script>
 <script src="./pageActions.js"></script>
 
 </body>
 </html>
 
-https://media.dnd.wizards.com/images/head-banner/04-PRODUCT-INFO_Tabletop_Hero_PHB.jpg
