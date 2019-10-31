@@ -11,15 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/dice.css">
     <link rel="stylesheet" href="./css/index.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-            crossorigin="anonymous"></script>
+
     <title>DnD Character Creator</title>
 </head>
 <body>
@@ -27,89 +19,215 @@
 <div class="modal fade raceModal" tabindex="-1" role="dialog" aria-labelledby="raceModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            <div class="modal-header">
+                <h3>Choose the race of your character</h3>
+            </div>
             <div id="raceCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseDwarf" data-trigger="hover" data-content="This is the Dwarf race">
+                            <img class="d-block w-100" src="img/dwarf.jpg" height="600px" width="498px" alt="dwarf">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Dwarf
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseElf" data-trigger="hover" data-content="This is the Elf race">
+                            <img class="d-block w-100" src="img/elf.jpg" height="600px" width="498px" alt="elf">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Elf
                         </div>
-                    
+
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseHalfing" data-trigger="hover" data-content="This is the Halfing race">
+                            <img class="d-block w-100" src="img/halfling.jpg" height="600px" width="498px" alt="halfing">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Halfing
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseHuman" data-trigger="hover" data-content="This is the Human race">
+                            <img class="d-block w-100" src="img/human.jpg" height="600px" width="498px" alt="human">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Human
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseDragonborn" data-trigger="hover" data-content="This is the Dragonborn race">
+                            <img class="d-block w-100" src="img/dragonborn.jpg" height="600px" width="498px" alt="dragonborn">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Dragonborn
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseGnome" data-trigger="hover" data-content="This is the Gnome race">
+                            <img class="d-block w-100" src="img/gnome.jpg" height="600px" width="498px" alt="gnome">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Gnome
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseHalfElf" data-trigger="hover" data-content="This is the Half-Elf race">
+                            <img class="d-block w-100" src="img/half-elf.jpg" height="600px" width="498px" alt="half-elf">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Half-elf
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseHalfOrc" data-trigger="hover" data-content="This is the Half-Orc race">
+                            <img class="d-block w-100" src="img/half-orc.jpg" height="600px" width="498px" alt="half-orc">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Half-orc
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="">
-                            <img class="d-block w-100" src="img/test.jpeg" alt="">
+                        <a href="" id="chooseTiefling" data-trigger="hover" data-content="This is the Tiefling race">
+                            <img class="d-block w-100" src="img/tiefling.jpg" height="600px" width="498px" alt="tiefling">
                         </a>
-                        <div class="carousel-caption">
+                        <div class="carousel-caption capText">
                             Tiefling
                         </div>
                     </div>
-                
+
                 </div>
                 <a class="carousel-control-prev" href="#raceCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next" href="#raceCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade classModal" tabindex="-1" role="dialog" aria-labelledby="classModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Choose the class of your character</h3>
+            </div>
+            <div id="classCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="" id="chooseBarbarian" data-trigger="hover" data-html="true" title="<div class='classTitle'>Barbarian</div>"
+                           data-content="This is the <em>barbarian </em>class">
+                            <img class="d-block w-100" src="img/barbarian.png" height="600px" width="498px" alt="barbarian">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Barbarian
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseBard" data-trigger="hover" data-content="This is the bard class">
+                            <img class="d-block w-100" src="img/bard.png" height="600px" width="498px" alt="bard">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Bard
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseCleric" data-trigger="hover" data-content="This is the cleric class">
+                            <img class="d-block w-100" src="img/cleric.png" height="600px" width="498px" alt="cleric">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Cleric
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseDruid" data-trigger="hover" data-content="This is the druid class">
+                            <img class="d-block w-100" src="img/druid.png" height="600px" width="498px" alt="druid">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Druid
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseFighter" data-trigger="hover" data-content="This is the fighter class">
+                            <img class="d-block w-100" src="img/fighter.png" height="600px" width="498px" alt="fighter">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Fighter
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseMonk" data-trigger="hover" data-content="This is the monk class">
+                            <img class="d-block w-100" src="img/monk.png" height="600px" width="498px" alt="monk">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Monk
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="choosePaladin" data-trigger="hover" data-content="This is the paladin class">
+                            <img class="d-block w-100" src="img/paladin.png" height="600px" width="498px" alt="paladin">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Paladin
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseRanger" data-trigger="hover" data-content="This is the ranger class">
+                            <img class="d-block w-100" src="img/ranger.png" height="600px" width="498px" alt="ranger">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Ranger
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseRogue" data-trigger="hover" data-content="This is the rogue class">
+                            <img class="d-block w-100" src="img/rogue.png" height="600px" width="498px" alt="rogue">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Rogue
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseSorcerer" data-trigger="hover" data-content="This is the sorcerer class">
+                            <img class="d-block w-100" src="img/sorcerer.png" height="600px" width="498px" alt="sorcerer">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Sorcerer
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseWarlock" data-trigger="hover" data-content="This is the warlock class">
+                            <img class="d-block w-100" src="img/warlock.png" height="600px" width="498px" alt="warlock">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Warlock
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="" id="chooseWizard" data-trigger="hover" data-content="This is the wizard class">
+                            <img class="d-block w-100" src="img/wizard.png" height="600px" width="498px" alt="wizard">
+                        </a>
+                        <div class="carousel-caption capText">
+                            Wizard
+                        </div>
+                    </div>
+
+
+                </div>
+                <a class="carousel-control-prev" href="#classCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#classCarousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -209,19 +327,24 @@
                     <form action="#" method="POST">
                         <div class="card form-group p-3 bg-warning">
                             <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock"
-                                   autocomplete="off">
+                                   autocomplete="off" data-toggle="popover" data-trigger="focus"
+                                   data-content="Enter your character's name here." data-placement="top">
                             <input class="form-control" type="text" name="ageBlock" placeholder="Age" id="ageBlock"
-                                   autocomplete="off">
-                            <input class="form-control" type="text" name="raceBlock" placeholder="Race"
+                                   autocomplete="off" data-toggle="popover" data-trigger="focus"
+                                   data-content="Enter your character's age here." data-placement="left">
+                            <input class="form-control non" type="text" name="raceBlock" placeholder="Race"
                                    data-toggle="modal" data-target=".raceModal" id="raceBlock" autocomplete="off">
-                            <input class="form-control" type="text" name="classBlock" placeholder="Class"
-                                   id="classBlock" autocomplete="off">
+                            <input class="form-control non" type="text" name="classBlock" placeholder="Class"
+                                   data-toggle="modal" data-target=".classModal" id="classBlock" autocomplete="off">
                             <input class="form-control" type="text" name="levelBlock" placeholder="Level"
-                                   id="levelBlock" autocomplete="off">
+                                   id="levelBlock" autocomplete="off" data-toggle="popover" data-trigger="focus"
+                                   data-content="Enter your character's level here." data-placement="left">
                             <input class="form-control" type="text" name="healthBlock" placeholder="Health"
-                                   id="healthBlock" autocomplete="off">
+                                   id="healthBlock" autocomplete="off" data-toggle="popover" data-trigger="focus"
+                                   data-content="Enter your character's health value here." data-placement="left">
                             <input class="form-control" type="text" name="speedBlock" placeholder="Speed"
-                                   id="speedBlock" autocomplete="off">
+                                   id="speedBlock" autocomplete="off" data-toggle="popover" data-trigger="focus"
+                                   data-content="Enter your character's speed here." data-placement="left">
                             <button type="submit" class="btn btn-primary" id="submitGeneral">Submit General Stats
                             </button>
                         </div>
@@ -600,10 +723,16 @@
 
 
 
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 <script src="characterObjects.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="./modifiers.js"></script>
 <script src="./js/dice.js"></script>
 <script src="./js/spells.js"></script>
