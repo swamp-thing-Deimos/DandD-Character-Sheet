@@ -1,16 +1,27 @@
+let cardTitle = document.getElementById('card-title')
+let cardBody = document.getElementById('card-body')
 
-let acidArrow = []
-
-const getSpell1 = async () => {
+const getSpell1 = async (id) => {
     try {
-      let res = await fetch(`http://www.dnd5eapi.co/api/spells/1`)
+      let res = await fetch(`http://www.dnd5eapi.co/api/spells/${id}`)
             .then(res => res.json())
-        console.log(`res: `, res)
-     
+
+        cardTitle.innerHTML = `<div class="h1">${res.name}</div>`
+        cardBody.innerHTML =
+           ` Level: ${res.level} </br>
+            Range: ${res.range} </br>
+            Description: ${res.desc} `
     } catch (e) {
         console.log(`spell1 error`)
         console.error(e.message)
     }
-    
+
 }
-getSpell1()
+
+
+const randomSpell = () => {
+    let random = Math.floor(Math.random() *10)
+    getSpell1(random)
+}
+randomSpell()
+
