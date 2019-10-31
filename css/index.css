@@ -6,3 +6,17 @@
 /*   background-size: cover;*/
 /*   background-position: center; }*/
 /*}*/
+
+.capText{
+    color: white;
+    font-size: 40px;
+    text-shadow:
+            0.07em 0 black,
+            0 0.07em black,
+            -0.07em 0 black,
+            0 -0.07em black;
+}
+
+.classTitle{
+    color: red;
+}
