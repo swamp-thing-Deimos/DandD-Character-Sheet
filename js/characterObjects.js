@@ -101,62 +101,62 @@ var playerClasses = {
     fighter: {
         proficiency: ['str', 'con'],
         hitDice: 'd10',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['acrobatics','animal handling','athletics','history','insight','intimidation','perception','survival'],
+        numberOfSkillChoices: 2
     },
     cleric: {
         proficiency: ['wis', 'cha'],
         hitDice: 'd8',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['history','insight','medicine','persuasion','religion'],
+        numberOfSkillChoices: 2
     },
     rogue: {
         proficiency: ['dex', 'int'],
         hitDice: 'd10',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['acrobatics','athletics','deception','insight','intimidation','investigation','perception','performance','persuasion','sleight of hand','stealth'],
+        numberOfSkillChoices: 4
     },
     wizard: {
         proficiency: ['int', 'wis'],
         hitDice: 'd6',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['arcana','history','insight','investigation','medicine','religion'],
+        numberOfSkillChoices: 2
     },
     warlock: {
         proficiency: ['wis', 'cha'],
         hitDice: 'd8',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['arcana','deception','history','intimidation','investigation','nature','religion'],
+        numberOfSkillChoices: 2
     },
     monk: {
         proficiency: ['str', 'dex'],
         hitDice: 'd8',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['acrobatics','athletics','history','insight','religion','stealth'],
+        numberOfSkillChoices: 2
     },
     paladin: {
         proficiency: ['wis', 'cha'],
         hitDice: 'd10',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['athletics','insight','intimidation','medicine','persuasion','religion'],
+        numberOfSkillChoices: 2
     },
     ranger: {
         proficiency: ['str', 'dex'],
         hitDice: 'd10',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['animal handling','athletics','insight','investigation','nature','perception','stealth','survival'],
+        numberOfSkillChoices: 3
     },
     druid: {
         proficiency: ['int', 'wis'],
         hitDice: 'd8',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['arcana','animal handling','insight','medicine','nature','perception','religion','survival'],
+        numberOfSkillChoices: 2
     },
     sorcerer: {
         proficiency: ['con', 'cha'],
         hitDice: 'd6',
-        skillChoices: [],
-        numberOfSkillChoices: 0
+        skillChoices: ['arcana','deception','insight','intimidation','persuasion','religion'],
+        numberOfSkillChoices: 2
     },
     barbarian: {
         proficiency: ['str', 'con'],
