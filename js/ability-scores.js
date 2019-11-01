@@ -2,6 +2,7 @@ $(document).ready(function () {
     //   http://www.dnd5eapi.co/api/ability-scores
     
     let proficency = $('#proficency-button')
+    let body = $('#proficency-modal-body')
 
     
 
@@ -12,7 +13,12 @@ $(document).ready(function () {
             if (name === 'proficiencies') {
                 let res = await fetch(`http://www.dnd5eapi.co/api/proficiencies`)
                     .then(res => res.json())
-                console.log(res)
+                let results = res.results.filter((a,i)=> i < 10)
+                let html = `<ul>`
+                results.forEach(r => html += `<li>${r.name}</li>`)
+                html += `</ul>`
+                body.html(html)
+                
             }
             else console.log(`ljidfl`)
         
