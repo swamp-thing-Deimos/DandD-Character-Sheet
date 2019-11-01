@@ -20,7 +20,7 @@ const getSpell1 = async (id) => {
 
 
 const randomSpell = () => {
-    let random = Math.floor(Math.random() *10)
+    let random = Math.floor(Math.random() * 30)
     getSpell1(random)
 }
 randomSpell()

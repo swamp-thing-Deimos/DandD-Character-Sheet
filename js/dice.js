@@ -23,7 +23,6 @@ d6.addEventListener('click', rollD6)
 
 
 let d8 = document.getElementById('d8')
-console.log(d8)
 const rollD8 = () => {
     console.log(`D8`)
     let rolled = Math.floor(Math.random() * 8) + 1;
