@@ -385,7 +385,45 @@
                 <!--                eend-->
                 <div class=" d-flex flex-column
     justify-content-center align-items-center col-md-6 d-xs-none" id="primaryStats2">
-                    HERE
+                    <div class="list-group" id="tab2-actions">
+<!--                        one-->
+                        <button type="button" class="list-group-item list-group-item-action active"
+                        data-toggle="modal"
+                        data-target="#proficency-modal"
+                        id="proficency-button"
+                        value="proficiencies">
+                            Proficiency Details
+                        </button>
+                        <div class="modal fade" id="proficency-modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        Proficency Details
+                                    </div>
+                                    <div class="modal-body"
+                                    id="proficency-modal-body">
+                                        body
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-defaul"
+                                        data-dismiss="modal" >Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!--                        TWO-->
+                        <button type="button" class="list-group-item list-group-item-action"
+                        id="strength-button">Strength Details</button>
+                        <button type="button" class="list-group-item list-group-item-action"
+                        id="dexterity-button">Dexterity Details</button>
+                        <button type="button" class="list-group-item list-group-item-action"
+                        id="constitution-button">Constitution
+                            Details</button>
+                        <button type="button" class="list-group-item list-group-item-action"
+                        id="intelligence-button">Intelligence
+                            Details
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -732,11 +770,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-<script src="characterObjects.js"></script>
-<script src="./modifiers.js"></script>
+<script src="js/characterObjects.js"></script>
+<script src="js/modifiers.js"></script>
 <script src="./js/dice.js"></script>
 <script src="./js/spells.js"></script>
-<script src="./pageActions.js"></script>
+<script src="js/pageActions.js"></script>
+<script src="./js/ability-scores.js"></script>
 
 </body>
 </html>
