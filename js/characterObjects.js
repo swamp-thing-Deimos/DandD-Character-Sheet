@@ -101,67 +101,67 @@ var playerClasses = {
     fighter: {
         proficiency: ['str', 'con'],
         hitDice: 'd10',
-        skillChoices: ['acrobatics','animal handling','athletics','history','insight','intimidation','perception','survival'],
+        skillChoices: ['acrobatics', 'animal handling', 'athletics', 'history', 'insight', 'intimidation', 'perception', 'survival'],
         numberOfSkillChoices: 2
     },
     cleric: {
         proficiency: ['wis', 'cha'],
         hitDice: 'd8',
-        skillChoices: ['history','insight','medicine','persuasion','religion'],
+        skillChoices: ['history', 'insight', 'medicine', 'persuasion', 'religion'],
         numberOfSkillChoices: 2
     },
     rogue: {
         proficiency: ['dex', 'int'],
         hitDice: 'd10',
-        skillChoices: ['acrobatics','athletics','deception','insight','intimidation','investigation','perception','performance','persuasion','sleight of hand','stealth'],
+        skillChoices: ['acrobatics', 'athletics', 'deception', 'insight', 'intimidation', 'investigation', 'perception', 'performance', 'persuasion', 'sleight of hand', 'stealth'],
         numberOfSkillChoices: 4
     },
     wizard: {
         proficiency: ['int', 'wis'],
         hitDice: 'd6',
-        skillChoices: ['arcana','history','insight','investigation','medicine','religion'],
+        skillChoices: ['arcana', 'history', 'insight', 'investigation', 'medicine', 'religion'],
         numberOfSkillChoices: 2
     },
     warlock: {
         proficiency: ['wis', 'cha'],
         hitDice: 'd8',
-        skillChoices: ['arcana','deception','history','intimidation','investigation','nature','religion'],
+        skillChoices: ['arcana', 'deception', 'history', 'intimidation', 'investigation', 'nature', 'religion'],
         numberOfSkillChoices: 2
     },
     monk: {
         proficiency: ['str', 'dex'],
         hitDice: 'd8',
-        skillChoices: ['acrobatics','athletics','history','insight','religion','stealth'],
+        skillChoices: ['acrobatics', 'athletics', 'history', 'insight', 'religion', 'stealth'],
         numberOfSkillChoices: 2
     },
     paladin: {
         proficiency: ['wis', 'cha'],
         hitDice: 'd10',
-        skillChoices: ['athletics','insight','intimidation','medicine','persuasion','religion'],
+        skillChoices: ['athletics', 'insight', 'intimidation', 'medicine', 'persuasion', 'religion'],
         numberOfSkillChoices: 2
     },
     ranger: {
         proficiency: ['str', 'dex'],
         hitDice: 'd10',
-        skillChoices: ['animal handling','athletics','insight','investigation','nature','perception','stealth','survival'],
+        skillChoices: ['animal handling', 'athletics', 'insight', 'investigation', 'nature', 'perception', 'stealth', 'survival'],
         numberOfSkillChoices: 3
     },
     druid: {
         proficiency: ['int', 'wis'],
         hitDice: 'd8',
-        skillChoices: ['arcana','animal handling','insight','medicine','nature','perception','religion','survival'],
+        skillChoices: ['arcana', 'animal handling', 'insight', 'medicine', 'nature', 'perception', 'religion', 'survival'],
         numberOfSkillChoices: 2
     },
     sorcerer: {
         proficiency: ['con', 'cha'],
         hitDice: 'd6',
-        skillChoices: ['arcana','deception','insight','intimidation','persuasion','religion'],
+        skillChoices: ['arcana', 'deception', 'insight', 'intimidation', 'persuasion', 'religion'],
         numberOfSkillChoices: 2
     },
     barbarian: {
         proficiency: ['str', 'con'],
         hitDice: 'd12',
-        skillChoices: ['animal handling','athletics','intimidation','nature','perception','survival'],
+        skillChoices: ['animal handling', 'athletics', 'intimidation', 'nature', 'perception', 'survival'],
         numberOfSkillChoices: 2
     },
     bard: {
@@ -174,20 +174,20 @@ var playerClasses = {
 
 var playerRaces = {
     dragonborn: {
-        statBonus: ['2 str','1 cha'],
-        racialTraits: ['araconic ancestry','breath weapon', 'damage resistance']
+        statBonus: ['2 str', '1 cha'],
+        racialTraits: ['araconic ancestry', 'breath weapon', 'damage resistance']
     },
     dwarf: {
         statBonus: ['2 con'],
-        racialTraits: ['darkvision', 'dwarven resilience', 'dwarven combat training','stonecunning']
+        racialTraits: ['darkvision', 'dwarven resilience', 'dwarven combat training', 'stonecunning']
     },
     elf: {
         statBonus: ['2 dex'],
-        racialTraits: ['darkvision','keen senses', 'fey ancestry','trance']
+        racialTraits: ['darkvision', 'keen senses', 'fey ancestry', 'trance']
     },
     gnome: {
         statBonus: ['2 int'],
-        racialTraits: ['darkvision','gnome cunning']
+        racialTraits: ['darkvision', 'gnome cunning']
     },
     halfElf: {
         statBonus: ['2 cha', '1 other'],
@@ -195,19 +195,19 @@ var playerRaces = {
     },
     halfling: {
         statBonus: ['2 dex'],
-        racialTraits: ['lucky','brave','halfling nimbleness']
+        racialTraits: ['lucky', 'brave', 'halfling nimbleness']
     },
     halfOrc: {
-        statBonus: ['2 str','1 con'],
-        racialTraits: ['darkvision', 'menacing','relentless endurance','savage attacks']
+        statBonus: ['2 str', '1 con'],
+        racialTraits: ['darkvision', 'menacing', 'relentless endurance', 'savage attacks']
     },
     human: {
         statBonus: ['1 all'],
         racialTraits: ['extra language']
     },
     tiefling: {
-        statBonus: ['2 cha','1 int'],
-        racialTraits: ['darkvision','hellish resistance', 'infernal legacy']
+        statBonus: ['2 cha', '1 int'],
+        racialTraits: ['darkvision', 'hellish resistance', 'infernal legacy']
     }
 };
 
@@ -232,6 +232,7 @@ function setGeneral(e) {
     }
 }
 
+// function to pull from the character object's general object to the html web page
 function pullGeneral() {
     document.getElementById('nameBlock').value = character.generalStats.name;
     document.getElementById('ageBlock').value = character.generalStats.age;
@@ -242,6 +243,7 @@ function pullGeneral() {
     document.getElementById('speedBlock').value = character.generalStats.speed;
 }
 
+// function to push primary stats into the character.primary object
 function setPrimary(e) {
     e.preventDefault();
     character.primaryStats.proficiency = document.getElementById('profStat').value;
@@ -256,6 +258,7 @@ function setPrimary(e) {
     pullPrimary();
 }
 
+//function to pull from character.primary object to the html page
 function pullPrimary() {
     document.getElementById('profStat').value = character.primaryStats.proficiency;
     document.getElementById('strStat').value = character.primaryStats.strength;
@@ -266,6 +269,7 @@ function pullPrimary() {
     document.getElementById('chaStat').value = character.primaryStats.charisma;
 }
 
+//function to push from html to character.savingThrowModifier
 function setSave(e) {
     e.preventDefault();
     character.savingThrowModifier.strength = document.getElementById('strSave').value;
@@ -276,6 +280,7 @@ function setSave(e) {
     character.savingThrowModifier.charisma = document.getElementById('chaSave').value;
 }
 
+//function to pull from the character.savingThrowModifier to html
 function pullSave() {
     document.getElementById('strSave').value = character.savingThrowModifier.strength;
     document.getElementById('dexSave').value = character.savingThrowModifier.dexterity;
@@ -285,6 +290,7 @@ function pullSave() {
     document.getElementById('chaSave').value = character.savingThrowModifier.charisma;
 }
 
+//function to push from html to the character.skillStats object
 function setSkills(e) {
     e.preventDefault();
     character.skillStats.acrobatics = document.getElementById('acroStat').value;
@@ -307,6 +313,7 @@ function setSkills(e) {
     character.skillStats.survival = document.getElementById('survStat').value;
 }
 
+//function to pull from the character.skillStats to the html
 function pullSkills() {
     document.getElementById('acroStat').value = character.skillStats.acrobatics;
     document.getElementById('animalStat').value = character.skillStats.animalHandling;
@@ -328,7 +335,7 @@ function pullSkills() {
     document.getElementById('survStat').value = character.skillStats.survival;
 }
 
-
+//function to push from html to the character.backgroundInfo
 function setBackground(e) {
     e.preventDefault();
     character.backgroundInfo.personality = document.getElementById('personTraits').value;
@@ -339,6 +346,7 @@ function setBackground(e) {
     character.backgroundInfo.other = document.getElementById('other').value;
 }
 
+//function to pull from the character.backgroundInfo object to the html
 function pullBackground() {
     document.getElementById('personTraits').value = character.backgroundInfo.personality;
     document.getElementById('idealsBlock').value = character.backgroundInfo.ideals;
@@ -348,17 +356,20 @@ function pullBackground() {
     document.getElementById('other').value = character.backgroundInfo.other;
 }
 
+//function to push from html to character.featTraits object
 function setFeatTraits(e) {
     e.preventDefault();
     character.featTraits.features = document.getElementById('featsBlock').value;
     character.featTraits.traits = document.getElementById('traitsBlock').value;
 }
 
+//function to pull from character.featTraits object to html
 function pullFeatTraits() {
     document.getElementById('featsBlock').value = character.featTraits.features;
     document.getElementById('traitsBlock').value = character.featTraits.traits;
 }
 
+//function to push from html to character.equipment object
 function setEquipment(e) {
     e.preventDefault();
     character.equipment.armor.push(document.getElementById('armorBlock').value);
@@ -366,11 +377,13 @@ function setEquipment(e) {
     character.equipment.items.push(document.getElementById('itemsBlock').value);
 }
 
+//function to pull from character.equipment to html
 function pullEquipment() {
 
 
 }
 
+//function to pull from html to character.spells
 function setSpells(e) {
     e.preventDefault();
     character.spells.cantrips.push(document.getElementById('0level').value);
@@ -385,23 +398,27 @@ function setSpells(e) {
     character.spells.levelNine.push(document.getElementById('9level').value);
 }
 
+//function to push from character.spells to html
 function pullSpells() {
 
 }
 
+//function to pull from html to character.battle
 function setBattle(e) {
     e.preventDefault();
-    character.battle.armorClass = document.getElementById('armorClass').value;
-    character.battle.initiative = document.getElementById('initiativeBlock').value;
-    character.battle.weaponBlock = document.getElementById('weaponBlock').value;
-    character.battle.magicBlock = document.getElementById('magicBlock').value;
-}
-
-function pullBattle() {
     document.getElementById('armorClass').value = character.battle.armorClass;
     document.getElementById('initiativeBlock').value = character.battle.initiative;
     document.getElementById('weaponBlock').value = character.battle.weaponBlock;
     document.getElementById('magicBlock').value = character.battle.magicBlock;
+}
+
+//function to push from character.battle object to html
+function pullBattle() {
+    character.battle.armorClass = document.getElementById('armorClass').value;
+    character.battle.initiative = document.getElementById('initiativeBlock').value;
+    character.battle.weaponBlock = document.getElementById('weaponBlock').value;
+    character.battle.magicBlock = document.getElementById('magicBlock').value;
+
 }
 
 // setting query triggers
