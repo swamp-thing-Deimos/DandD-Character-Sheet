@@ -204,6 +204,7 @@ function primaryStatsFixer() {
     character.primaryStats.wisdom = checkAndFixPrimaryStats(character.primaryStats.wisdom);
     character.primaryStats.charisma = checkAndFixPrimaryStats(character.primaryStats.charisma);
 }
+//
 function runMainStatCalc() {
     character.savingThrowModifier.strength = calcMod(character.primaryStats.strength, 0);
     character.savingThrowModifier.dexterity = calcMod(character.primaryStats.dexterity, 0);
