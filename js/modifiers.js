@@ -1,11 +1,13 @@
 "use strict";
 
-
+//function to calculate the roll made plus the modifier
 function calcThrow(mod, roll) {
     let diceThrow = mod + roll;
     return diceThrow;
 }
 
+//function that takes in a string from d4 to d20 and returns a random number based on the dice or false with an alert
+//if the input is not one of the desired inputs
 function diceRoll(pickedDice){
     switch (pickedDice) {
         case 'd4':
@@ -27,6 +29,7 @@ function diceRoll(pickedDice){
 
 }
 
+//function that pulls from the character object the character's level and calculates' the character
 function proficiencyBonusNumber() {
     let charLevel = parseInt(character.generalStats.level); //pull level from object
     if (parseInt(charLevel) >16 && parseInt(charLevel) <= 20){
@@ -153,7 +156,7 @@ var persuasionBox = document.getElementById("persStat");
 
 
 
-//optionals:
+
 // hit dice rolls
 function pullClassHitDice(charClass){
     switch (charClass) {
@@ -201,6 +204,7 @@ function primaryStatsFixer() {
     character.primaryStats.wisdom = checkAndFixPrimaryStats(character.primaryStats.wisdom);
     character.primaryStats.charisma = checkAndFixPrimaryStats(character.primaryStats.charisma);
 }
+//
 function runMainStatCalc() {
     character.savingThrowModifier.strength = calcMod(character.primaryStats.strength, 0);
     character.savingThrowModifier.dexterity = calcMod(character.primaryStats.dexterity, 0);
