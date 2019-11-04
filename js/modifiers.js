@@ -195,6 +195,13 @@ function healthRoll(startingLevel,hitDie, conMod) {
     return startingLevel*diceRoll(hitDie) + conMod;
 }
 
+function generateHealth() {
+    if (character.generalStats.health === '' && character.generalStats.class !== '' && character.generalStats.level !== 0 && character.primaryStats.constitution !== 0) {
+        character.generalStats.health = healthRoll(character.generalStats.level, pullClassHitDice(character.generalStats.class), calcMod(character.primaryStats.constitution, 0));
+        document.getElementById('healthBlock').value = character.generalStats.health;
+    }
+}
+
 // object functions
 function primaryStatsFixer() {
     character.primaryStats.strength = checkAndFixPrimaryStats(character.primaryStats.strength);
@@ -224,6 +231,17 @@ function runMainProStat() {
 }
 
 function runSkillModifierCheck() {
+
+
+
+
+
+
+
+
+
+
+
     character.skillStats.acrobatics = addMod(character.savingThrowModifier.dexterity, false);
     character.skillStats.animalHandling = addMod(character.savingThrowModifier.wisdom, false);
     character.skillStats.arcana = addMod(character.savingThrowModifier.intelligence, false);

@@ -94,6 +94,9 @@ var character = {
         initiative: 0,
         weaponBlock: 0,
         magicBlock: 0
+    },
+    loadFlags: {
+        defaultFlag: false
     }
 };
 
@@ -224,16 +227,17 @@ function setGeneral(e) {
     character.generalStats.level = document.getElementById('levelBlock').value;
     character.generalStats.health = document.getElementById('healthBlock').value;
     character.generalStats.speed = document.getElementById('speedBlock').value;
-    if (character.generalStats.health === '' && character.generalStats.class !== '' && character.generalStats.level !== 0 && character.primaryStats.constitution !== 0) {
-        healthRoll(character.generalStats.level, pullClassHitDice(character.generalStats.class), calcMod(character.primaryStats.constitution, 0));
-    }
+    // generateHealth();
     if (character.generalStats.level !== 0) {
-        proficiencyBonusNumber();
+        character.primaryStats.proficiency = proficiencyBonusNumber();
+        document.getElementById('profStat').value = character.primaryStats.proficiency;
     }
 }
 
+// document.getElementById('submitGeneral').onclick(function (event){setGeneral(event)});q
+
 // function to pull from the character object's general object to the html web page
-function pullGeneral() {
+function pullGeneral(event) {
     document.getElementById('nameBlock').value = character.generalStats.name;
     document.getElementById('ageBlock').value = character.generalStats.age;
     document.getElementById('raceBlock').value = character.generalStats.race;
@@ -242,6 +246,7 @@ function pullGeneral() {
     document.getElementById('healthBlock').value = character.generalStats.health;
     document.getElementById('speedBlock').value = character.generalStats.speed;
 }
+// document.getElementById('').onclick(pullGeneral());
 
 // function to push primary stats into the character.primary object
 function setPrimary(e) {
@@ -256,7 +261,10 @@ function setPrimary(e) {
     primaryStatsFixer();
     runMainStatCalc();
     pullPrimary();
+    // generateHealth();
 }
+
+// document.getElementById('submitPrimary').onclick(function (event){setPrimary(event)});
 
 //function to pull from character.primary object to the html page
 function pullPrimary() {
@@ -269,6 +277,9 @@ function pullPrimary() {
     document.getElementById('chaStat').value = character.primaryStats.charisma;
 }
 
+// document.getElementById('').onclick(pullPrimary());
+
+
 //function to push from html to character.savingThrowModifier
 function setSave(e) {
     e.preventDefault();
@@ -279,6 +290,7 @@ function setSave(e) {
     character.savingThrowModifier.wisdom = document.getElementById('wisSave').value;
     character.savingThrowModifier.charisma = document.getElementById('chaSave').value;
 }
+// document.getElementById('submitPrimary').onclick(function (event){setSave(event)});
 
 //function to pull from the character.savingThrowModifier to html
 function pullSave() {
@@ -289,6 +301,7 @@ function pullSave() {
     document.getElementById('wisSave').value = character.savingThrowModifier.wisdom;
     document.getElementById('chaSave').value = character.savingThrowModifier.charisma;
 }
+// document.getElementById('').onclick(pullPrimary());
 
 //function to push from html to the character.skillStats object
 function setSkills(e) {
@@ -312,6 +325,12 @@ function setSkills(e) {
     character.skillStats.stealth = document.getElementById('stealthStat').value;
     character.skillStats.survival = document.getElementById('survStat').value;
 }
+// document.getElementById('submitSkills').onclick(function (event){setSkills(event)});
+function skillChanges(){
+
+}
+
+
 
 //function to pull from the character.skillStats to the html
 function pullSkills() {
@@ -334,6 +353,7 @@ function pullSkills() {
     document.getElementById('stealthStat').value = character.skillStats.stealth;
     document.getElementById('survStat').value = character.skillStats.survival;
 }
+// document.getElementById('').onclick(pullSkills());
 
 //function to push from html to the character.backgroundInfo
 function setBackground(e) {
@@ -345,6 +365,7 @@ function setBackground(e) {
     character.backgroundInfo.languages = document.getElementById('langBlock').value;
     character.backgroundInfo.other = document.getElementById('other').value;
 }
+// document.getElementById('submitBackground').onclick(function (event){setBackground(event)});
 
 //function to pull from the character.backgroundInfo object to the html
 function pullBackground() {
@@ -355,6 +376,7 @@ function pullBackground() {
     document.getElementById('langBlock').value = character.backgroundInfo.languages;
     document.getElementById('other').value = character.backgroundInfo.other;
 }
+// document.getElementById('').onclick(pullBackground());
 
 //function to push from html to character.featTraits object
 function setFeatTraits(e) {
@@ -362,12 +384,14 @@ function setFeatTraits(e) {
     character.featTraits.features = document.getElementById('featsBlock').value;
     character.featTraits.traits = document.getElementById('traitsBlock').value;
 }
+// document.getElementById('submitFeatTraits').onclick(function (event){setFeatTraits(event)});
 
 //function to pull from character.featTraits object to html
 function pullFeatTraits() {
     document.getElementById('featsBlock').value = character.featTraits.features;
     document.getElementById('traitsBlock').value = character.featTraits.traits;
 }
+// document.getElementById('').onclick(pullFeatTraits());
 
 //function to push from html to character.equipment object
 function setEquipment(e) {
@@ -376,12 +400,14 @@ function setEquipment(e) {
     character.equipment.weapons.push(document.getElementById('weaponsBlock').value);
     character.equipment.items.push(document.getElementById('itemsBlock').value);
 }
+// document.getElementById('submitEquipment').onclick(function (event){setEquipment(event)});
 
 //function to pull from character.equipment to html
 function pullEquipment() {
 
 
 }
+// document.getElementById('').onclick(pullEquipment());
 
 //function to pull from html to character.spells
 function setSpells(e) {
@@ -397,11 +423,13 @@ function setSpells(e) {
     character.spells.levelEight.push(document.getElementById('8level').value);
     character.spells.levelNine.push(document.getElementById('9level').value);
 }
+// document.getElementById('submitSpells').onclick(function (event){setSpells(event)});
 
 //function to push from character.spells to html
 function pullSpells() {
 
 }
+// document.getElementById('').onclick(pullSpells());
 
 //function to pull from html to character.battle
 function setBattle(e) {
@@ -411,6 +439,7 @@ function setBattle(e) {
     document.getElementById('weaponBlock').value = character.battle.weaponBlock;
     document.getElementById('magicBlock').value = character.battle.magicBlock;
 }
+// document.getElementById('submitBattleBloock').onclick(function (event){setBattle(event)});
 
 //function to push from character.battle object to html
 function pullBattle() {
@@ -420,6 +449,7 @@ function pullBattle() {
     character.battle.magicBlock = document.getElementById('magicBlock').value;
 
 }
+// document.getElementById('').onclick(pullBattle());
 
 // setting query triggers
 var submitGeneral = document.querySelector('#submitGeneral');
@@ -447,6 +477,9 @@ submitBattle.addEventListener('click', setBattle);
 //Load character saved from a database
 function LoadCharacter() {
     //load from database to object
+
+
+
     //push database to front end.
     pullGeneral();
     pullPrimary();
