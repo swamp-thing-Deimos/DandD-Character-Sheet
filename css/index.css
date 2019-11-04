@@ -20,9 +20,36 @@
 .classTitle{
 }
 
+<<<<<<< HEAD
+=======
+
+/*BUTTONS*/
+.btn{
+  text-align: center;
+  display: inline-block;
+  margin:5px;
+  font-weight: bold;
+  padding: 10px 0 10px 10px ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 .2em gray;
+  cursor: pointer;
+>>>>>>> cec5e79047b1a9b8eaf8fa1e46e0d7cd2bae9f29
 
 
+<<<<<<< HEAD
 
+=======
+/*main tab images*/
+#main-left {
+  background-image: url("../img/main-left-image.png");
+}
+>>>>>>> cec5e79047b1a9b8eaf8fa1e46e0d7cd2bae9f29
 .classList{
     list-style: none;
 }
