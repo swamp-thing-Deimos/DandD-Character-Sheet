@@ -20,6 +20,7 @@
 .classTitle{
 }
 
+
 /*BUTTONS*/
 .btn{
   text-align: center;
@@ -42,4 +43,7 @@
 /*main tab images*/
 #main-left {
   background-image: url("../img/main-left-image.png");
+}
+.classList{
+    list-style: none;
 }
