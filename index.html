@@ -321,10 +321,9 @@
     </div>
 </div>
 <!--END DICE-->
-<div class="container-fluid justify-content-center p-0 m-0 align-items-center ">
+<!--<div class="container-fluid justify-content-center p-0 m-0 align-items-center ">-->
     <!--    first set of options-->
     <!--    TABS++++-->
-    <div class="tab-content">
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="#tab1"
@@ -346,10 +345,18 @@
                 <a class="nav-link" href="#tab5"
                    data-toggle="tab">Traits and Equipment</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#tab6"
+                   data-toggle="tab">Spells</a>
+            </li>
         
         </ul>
+
         
-        <!--    tab one-->
+<!--        =================+START TABS ===============-->
+<!--            ******** TAB ONE *******-->
+<div class="tab-content">
+
         <div class="tab-pane active" role="tabpanel" id="tab1">
             <div class="container-fluid bg-secondary d-flex justify-content-center">
                 <div class="d-flex flex-column  p-5
@@ -384,14 +391,14 @@
             </div>
         </div>
         
-        <!--    tab2-->
+<!--        ************** TAB TWO *********************-->
         <div role="tabpanel" class="tab-pane"
              id="tab2">
             <div class="container-fluid bg-secondary d-flex justify-content-center row m-auto">
                 <div class="d-flex flex-column p-5
     justify-content-center align-items-center
-    col-md-6 col-sm-12 " id="primaryStats ">
-                    <!--        SECOND form-->
+    col-sm-6 " id="primaryStats ">
+                    <!--        PART ONE-->
                     <form action="#">
                         <div class=" card form-group p-3 bg-warning">
                             <input class="form-control" type="text" name="profStat" placeholder="Proficency"
@@ -413,11 +420,12 @@
                         </div>
                     </form>
                 </div>
-                <!--                eend-->
+<!--                PART ONE END-->
+                <!--        PART TWO        -->
                 <div class=" d-flex flex-column
-    justify-content-center align-items-center col-md-6 d-xs-none" id="primaryStats2">
+    justify-content-center align-items-center col-sm-6" id="primaryStats2">
                     <div class="list-group" id="tab2-actions">
-                        <!--                        one-->
+                        <!--????????? MODAL ONE?????????-->
                         <button type="button" class="list-group-item list-group-item-action active"
                                 data-toggle="modal"
                                 data-target="#proficency-modal"
@@ -443,7 +451,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                        TWO-->
+                        <!--???????????  MODAL TWO ???????????-->
                         <button type="button" class="list-group-item list-group-item-action"
                                 data-toggle="modal"
                                 data-target="#strength-modal"
@@ -466,7 +474,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!--                        THREE-->
+                        </div>
+                        <!--??????????? MODAL THREE ?????????????-->
                         <button type="button" class="list-group-item list-group-item-action"
                                 data-toggle="modal"
                                 data-target="#dexterity-modal"
@@ -489,7 +498,7 @@
                                 </div>
                             </div>
                         </div>
-<!--                        four-->
+<!--                    ??????????? MODAL FOUR ????????????????-->
                         <button type="button" class="list-group-item list-group-item-action"
                                 data-toggle="modal"
                                 data-target="#constitution-modal"
@@ -513,7 +522,7 @@
                                 </div>
                             </div>
                         </div>
-<!--                        five-->
+<!--             ?????????????? MODAL FIVE ?????????????????-->
                         <button type="button" class="list-group-item list-group-item-action"
                                 data-toggle="modal"
                                 data-target="#intelligence-modal"
@@ -537,7 +546,7 @@
                                 </div>
                             </div>
                         </div>
-<!--                        six-->
+<!--                      ????????????? MODAL SIX ????????????-->
                         <button type="button" class="list-group-item list-group-item-action"
                                 data-toggle="modal"
                                 data-target="#wisdom-modal"
@@ -561,7 +570,7 @@
                                 </div>
                             </div>
                         </div>
-<!--                        SEVEN-->
+<!--                   ????????????? MODAL SEVEN ??????????????-->
                         <button type="button" class="list-group-item list-group-item-action"
                                 data-toggle="modal"
                                 data-target="#charisma-modal"
@@ -585,11 +594,14 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                        EIGHT-->
+                        <!--?????????????? END MODAL ??????????????-->
                     </div>
                 </div>
+<!--                //// END RIGHT///-->
             </div>
         </div>
+<!--        /// END TAB ///-->
+<!--        ======================== TAB THREE ==============-->
         <div role="tabpanel" class="tab-pane"
              id="tab3">
             <div class="container-fluid bg-secondary overflow-auto"
@@ -597,9 +609,10 @@
                 <div class="row">
                     <div class="col-sm-12 p-0 m-0">
                         <div id="generalStats p-0 m-o">
-                            <!--        SECOND form-->
+                            <!--    form-->
                             <form action="#">
                                 <div class="card form-group p-3 bg-secondary d-flex">
+<!--                                !!! ONE !!!-->
                                     <div class="row row1">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="acroStat"
@@ -610,6 +623,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!! TWO !!!!-->
                                     <div class="row row2">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="animalStat"
@@ -620,15 +634,19 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+                                    
+<!--                                    !!!! THREE !!! -->
                                     <div class="row row3">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="arcanaStat"
-                                                   placeholder="Arrcana" id="arcanaStat" autocomplete="off"></div>
+                                                   placeholder="Arrcana" id="arcanaStat" autocomplete="off">
+                                        </div>
                                         <div class="col-sm-1">+</div>
                                         <div class="col-sm-4">MISC</div>
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!! FOUR !!!!!!!-->
                                     <div class="row row4">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="athlStat"
@@ -640,6 +658,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!! FIVE !!!!!!-->
                                     <div class="row row5">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="deceptStat"
@@ -650,15 +669,18 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!! SIX !!!!!!!-->
                                     <div class="row row6">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="histStat"
-                                                   placeholder="History" id="histStat" autocomplete="off"></div>
+                                                   placeholder="History" id="histStat" autocomplete="off">
+                                        </div>
                                         <div class="col-sm-1">+</div>
                                         <div class="col-sm-4">MISC</div>
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!! SEVEN!!!!!!!-->
                                     <div class="row row7">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="insightStat"
@@ -669,6 +691,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!!!! EIGHT!!!!!!!!!-->
                                     <div class="row row8">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="intimStat"
@@ -679,6 +702,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!! NINE !!!!!!!!!-->
                                     <div class="row row9">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="investStat"
@@ -689,6 +713,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!! TEN !!!!!!!!!!-->
                                     <div class="row row10">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="mediStat"
@@ -699,6 +724,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!!! ELEVEN !!!!!!!!-->
                                     <div class="row row11">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="natStat" placeholder="Nature"
@@ -709,15 +735,18 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!! TWELVE !!!!!!!!!-->
                                     <div class="row row12">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="percStat"
-                                                   placeholder="Perception" id="percStat" autocomplete="off"></div>
+                                                   placeholder="Perception" id="percStat" autocomplete="off">
+                                        </div>
                                         <div class="col-sm-1">+</div>
                                         <div class="col-sm-4">MISC</div>
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!! THIRTEEN !!!!!!!!!!-->
                                     <div class="row row13">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="perfStat"
@@ -728,6 +757,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!! FOURTEEN !!!!!!!!!!-->
                                     <div class="row row14">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="persStat"
@@ -738,6 +768,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!!! FIFTEEN !!!!!!!!!!!-->
                                     <div class="row row15">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="reliStat"
@@ -748,6 +779,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!! SIXTEEN !!!!!!!!!-->
                                     <div class="row row16">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="sleightStat"
@@ -758,6 +790,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!!!! SEVENTEEN !!!!!!!!!-->
                                     <div class="row row17">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="stealthStat"
@@ -768,6 +801,7 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!! EIGHTEEN !!!!!!!!!!-->
                                     <div class="row row18">
                                         <div class="col-sm-3">
                                             <input class="form-control" type="text" name="survStat"
@@ -778,9 +812,11 @@
                                         <div class="col-sm-1">=</div>
                                         <div class="col-sm-2">MODIFY</div>
                                     </div>
+<!--                                    !!!!!!!!!!  !!!!!!!-->
                                     <button type="submit" class="btn btn-primary" id="submitSkills">Submit Skills
                                         Stats
                                     </button>
+                                    
                                 </div>
                             </form>
                         </div>
@@ -791,7 +827,7 @@
             </div>
         </div>
         
-        <!--        TAB4-->
+        <!-- ================== TAB FOUR =============-->
         <div role="tabpanel" class="tab-pane bg-secondary"
              id="tab4">
             <div class="d-flex flex-column p-5
@@ -813,11 +849,11 @@
             </div>
         </div>
         
-        <!--        tab5-->
-        <!--        FEATURES-->
+        <!-- ============== TAB FIVE =================-->
         <div role="tabpanel" class="tab-pane bg-secondary"
              id="tab5">
             <div class="row">
+<!--                ???? LEFT COL ????-->
                 <div class="col-6" id="featTraits">
                     <form action="#">
                         <div class=" card form-group p-3 bg-warning">
@@ -840,7 +876,7 @@
                     </form>
                 </div>
                 
-                <!--            second half-->
+                <!--?????? RIGHT COL ?????-->
                 <div class="col-6" id="battleBlock">
                     <form action="#">
                         <div class=" card form-group p-3 bg-warning">
@@ -862,63 +898,64 @@
         
         </div>
         
-        <!--end tab 5-->
-        
-        <!--            end-->
-    </div>
-    
-    
-    <!--    DROPDOWN-->
-    <p>
-        <button class="btn btn-primary" data-toggle="collapse" href="#spells" role="button">
-            Spells
-        </button>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#spellSuggestions">
-            Spell Suggestions
-        </button>
-    
-    </p>
-    <div class="collapse" id="spells">
-        <div class="card card-body overflow-auto h-75">
-            <form action="#">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="0level">
-                    <small id="0levelHelp" class="form-text text-muted">Cantrips</small>
-                    <input type="text" class="form-control" id="1level">
-                    <small id="1levelHelp" class="form-text text-muted">1st Level</small>
-                    <input type="text" class="form-control" id="2level">
-                    <small id="2levelHelp" class="form-text text-muted">2nd Level</small>
-                    <input type="text" class="form-control" id="3level">
-                    <small id="3levelHelp" class="form-text text-muted">3rd Level</small>
-                    <input type="text" class="form-control" id="4level">
-                    <small id="4levelHelp" class="form-text text-muted">4th Level</small>
-                    <input type="text" class="form-control" id="5level">
-                    <small id="5levelHelp" class="form-text text-muted">5th Level</small>
-                    <input type="text" class="form-control" id="6level">
-                    <small id="6levelHelp" class="form-text text-muted">6th Level</small>
-                    <input type="text" class="form-control" id="7level">
-                    <small id="5levelHelp" class="form-text text-muted">7th Level</small>
-                    <input type="text" class="form-control" id="8level">
-                    <small id="8levelHelp" class="form-text text-muted">8th Level</small>
-                    <input type="text" class="form-control" id="9level">
-                    <small id="9levelHelp" class="form-text text-muted">9th Level</small>
-                    <button class="btn btn-primary my-3"
-                            id="submitSpells">
-                        Submit Spells
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="collapse" id="spellSuggestions">
-        <div class="card">
-            <div class="card-body">
-                <div id="card-title" class="card-title"></div>
-                <div id="card-body" class="card-text"></div>
+        <!--============ TAB SIX ==========-->
+    <div role="tabpanel" class="tab-pane bg-secondary"
+         id="tab6">
+        <div class="row" >
+<!--            ////LEFT ///-->
+            <div class="col-sm-6" id="spells">
+                <form action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="0level"
+                        placeholder="Cantrips">
+                        <input type="text" class="form-control" id="1level"
+                        placeholder="1st Level">
+                        <input type="text" class="form-control" id="2level"
+                        placeholder="2nd Level">
+                        <input type="text" class="form-control" id="3level"
+                        placeholder="3rd Level">
+                        <input type="text" class="form-control" id="4level"
+                        placeholder="4th Level">
+                        <input type="text" class="form-control" id="5level"
+                        placeholder="5th Level">
+                        <input type="text" class="form-control" id="6level"
+                        placeholder="6th Level">
+                        <input type="text" class="form-control" id="7level"
+                        placeholder="7th Level">
+                        <input type="text" class="form-control" id="8level"
+                        placeholder="8th Level">
+                        <input type="text" class="form-control" id="9level"
+                        placeholder="9th Level">
+                        <button class="btn btn-primary my-3"
+                                id="submitSpells">
+                            Submit Spells
+                        </button>
+                    </div>
+                </form>
             </div>
+<!--            //// RIGHT ////-->
+            <div class="col-sm-6 " >
+                
+                    <div class="card overflow-auto" style="height: 380px">
+                        <div class="card-body">
+                            <div id="spellTitle" class="card-title">sdfa</div>
+                            <div id="spellText" class="card-text">body</div>
+                        </div>
+                </div>
+                <button class="btn btn-primary my-3" id="newSpell">
+                    Generate New Spell
+                </button>
+            </div>
+<!--            /// end right////-->
+        </div>
+        <div class="row">
+        
         </div>
     </div>
+<!--    ==============-->
+        <!--ENDING DIV-->
 </div>
+<!--    END OF TABS-->
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
