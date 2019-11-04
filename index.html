@@ -358,12 +358,11 @@
 <div class="tab-content">
 
         <div class="tab-pane active" role="tabpanel" id="tab1">
-            <div class="container-fluid bg-secondary d-flex justify-content-center">
-                <div class="d-flex flex-column  p-5
-    justify-content-center align-items-center" id="generalStats ">
-                    <!--        first form-->
+            <div class="container-fluid bg-secondary d-flex justify-content-center align-items-center row">
+                <div class="col-sm-4" id="main-left"></div>
+                <div class="col-sm-4" id="generalStats">
                     <form action="#" method="POST">
-                        <div class="card form-group p-3 bg-warning">
+                        <div class="card form-group p-3 bg-warning mt-2">
                             <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock"
                                    autocomplete="off" data-toggle="popover" data-trigger="focus"
                                    data-content="Enter your character's name here." data-placement="left">
@@ -388,6 +387,7 @@
                         </div>
                     </form>
                 </div>
+                <div class="col-sm-4" id="main-right"></div>
             </div>
         </div>
         
