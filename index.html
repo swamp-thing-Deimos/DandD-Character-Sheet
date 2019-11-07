@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/dice.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/amber.css">
     
     <title>DnD Character Creator</title>
 </head>
@@ -406,12 +407,12 @@
 </div>
 
 <!--NAVBAR-->
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
     <div class="navbar-brand h1 text-warning" href="#">D&D Builds</div>
 
 </nav>
 <!--DICE-->
-<div class='container'>
+<div class='container-fluid' id="dice-container">
     <div class='roll-result' id="roll-result">Roll!</div>
     <div class='dice'>
         <svg id='d4' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 100px; width: 100px;">
@@ -462,29 +463,29 @@
 <!--<div class="container-fluid justify-content-center p-0 m-0 align-items-center ">-->
     <!--    first set of options-->
     <!--    TABS++++-->
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#tab1"
+        <ul class="nav nav-tabs bg-secondary">
+            <li class="nav-item ">
+                <a class="nav-link active text-warning" href="#tab1"
                    data-toggle="tab">Main Stats</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tab2"
+                <a class="nav-link text-warning" href="#tab2"
                    data-toggle="tab">Primary Stats</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tab3"
+                <a class="nav-link text-warning" href="#tab3"
                    data-toggle="tab">Save Throws</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tab4"
+                <a class="nav-link text-warning" href="#tab4"
                    data-toggle="tab">Background Info</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tab5"
+                <a class="nav-link text-warning" href="#tab5"
                    data-toggle="tab">Traits and Equipment</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tab6"
+                <a class="nav-link text-warning" href="#tab6"
                    data-toggle="tab">Spells</a>
             </li>
         
@@ -496,9 +497,11 @@
 <div class="tab-content">
 
         <div class="tab-pane active" role="tabpanel" id="tab1">
-            <div class="container-fluid bg-secondary d-flex justify-content-center align-items-center row">
-                <div class="col-sm-4" id="main-left"></div>
-                <div class="col-sm-4" id="generalStats">
+            <div class="container-fluid  d-flex justify-content-center align-items-center row">
+                <div class="col-sm-4 d-none d-md-block" id="main-left">
+                    <img src="./img/main-left-image.png" alt="" id="main-image-left">
+                </div>
+                <div class="col-sm-12 col-md-4" id="generalStats">
                     <form action="#" method="POST">
                         <div class="card form-group p-3 bg-warning mt-2">
                             <input class="form-control" type="text" name="nameBlock" placeholder="Name" id="nameBlock"
@@ -525,17 +528,19 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-4" id="main-right"></div>
+                <div class="col-md-4 d-none d-md-block" id="main-right">
+                    <img src="./img/main-right.png" alt="girl">
+                </div>
             </div>
         </div>
         
 <!--        ************** TAB TWO *********************-->
         <div role="tabpanel" class="tab-pane"
              id="tab2">
-            <div class="container-fluid bg-secondary d-flex justify-content-center row m-auto">
-                <div class="d-flex flex-column p-5
+            <div class="container-fluid bg-secondary d-flex justify-content-center row m-auto" id="primary-container">
+                <div class="d-flex flex-column
     justify-content-center align-items-center
-    col-sm-6 " id="primaryStats ">
+    col-sm-12 col-md-6 " id="primaryStats ">
                     <!--        PART ONE-->
                     <form action="#">
                         <div class=" card form-group p-3 bg-warning">
@@ -565,11 +570,12 @@
                         </div>
                     </form>
                 </div>
+                
 <!--                PART ONE END-->
                 <!--        PART TWO        -->
-                <div class=" d-flex flex-column
-    justify-content-center align-items-center col-sm-6" id="primaryStats2">
-                    <div class="list-group" id="tab2-actions">
+                <div class=" d-xs-none  d-md-flex flex-column
+    justify-content-center align-items-center col-md-6 " id="primaryStats2">
+                    <div class="list-group bg-warning" id="tab2-actions">
                         <!--????????? MODAL ONE?????????-->
                         <button type="button" class="list-group-item list-group-item-action active"
                                 data-toggle="modal"
@@ -989,29 +995,42 @@
         
         <!-- ================== TAB FOUR =============-->
         <div role="tabpanel" class="tab-pane bg-secondary"
-             id="tab4">
+             id="tab4" >
+
+            <div class="row" >
+            <div class="d-none d-md-inline col-md-4" id="left-four">he</div>
+    
             <div class="d-flex flex-column p-5
     justify-content-center align-items-center
-    col-md-6 col-sm-12 " id="primaryStats ">
+    col-md-4 col-sm-12 " id="primaryStats ">
                 <form action="#">
                     <div class=" card form-group p-3 bg-warning">
                         <input type="text" id="personTraits" placeholder="Personality Traits" data-toggle="popover" data-trigger="focus"
-                               data-content="Enter the Personality Traits here." data-placement="left">
+                               data-content="Enter the Personality Traits here." data-placement="left"
+                        class="form-control">
                         <input type="text" id="idealsBlock" placeholder="Ideals" data-toggle="popover" data-trigger="focus"
-                               data-content="Enter the Ideals here." data-placement="left">
+                               data-content="Enter the Ideals here." data-placement="left"
+                               class="form-control">
                         <input type="text" id="bondBlock" placeholder="Bonds" data-toggle="popover" data-trigger="focus"
-                               data-content="Enter the Bonds here." data-placement="left">
+                               data-content="Enter the Bonds here." data-placement="left"
+                               class="form-control">
                         <input type="text" id="flawsBlock" placeholder="Flaws" data-toggle="popover" data-trigger="focus"
-                               data-content="Enter the Flaws here." data-placement="left">
+                               data-content="Enter the Flaws here." data-placement="left"
+                               class="form-control">
                         <input type="text" id="langBlock" placeholder="Languages" data-toggle="popover" data-trigger="focus"
-                               data-content="Enter the Languages here." data-placement="left">
+                               data-content="Enter the Languages here." data-placement="left"
+                               class="form-control">
                         <input type="text" id="other" placeholder="Other Proficiencies" data-toggle="popover" data-trigger="focus"
-                               data-content="Enter Other Proficiences here." data-placement="left">
+                               data-content="Enter Other Proficiences here." data-placement="left"
+                               class="form-control">
                         <button type="submit" class="btn btn-primary" id="submitBackground">Submit Background
                             Info
                         </button>
                     </div>
                 </form>
+            </div>
+            <div class="d-none d-md-inline col-md-4 position-relative" >he
+            </div>
             </div>
         </div>
         
@@ -1020,42 +1039,55 @@
              id="tab5">
             <div class="row">
 <!--                ???? LEFT COL ????-->
-                <div class="col-6" id="featTraits">
+                <div class="col-xs-12 col-md-4 " id="featTraits">
                     <form action="#">
-                        <div class=" card form-group p-3 bg-warning">
+                        <div class=" card form-group p-3 bg-warning change d-flex flex-column">
                             <input type="text" id="featsBlock" placeholder="Feats" data-toggle="popover" data-trigger="focus"
-                                   data-content="Enter the character's features here." data-placement="left">
+                                   data-content="Enter the character's features here." data-placement="left"
+                                   class="form-control">
                             <input type="text" id="traitsBlock" placeholder="Traits" data-toggle="popover" data-trigger="focus"
-                                   data-content="Enter the character's traits here." data-placement="left">
+                                   data-content="Enter the character's traits here." data-placement="left"
+                                   class="form-control">
                             <button type="submit" class="btn btn-primary" id="submitFeatTraits">Submit Feature Traits
                             </button>
                         </div>
                     </form>
+                </div>
                     
                     <!--    EQUPMENT-->
+                    <div class="col-xs-12 col-md-4 ">
                     <form action="#">
-                        <div class=" card form-group p-3 bg-warning">
-                            <input type="text" id="armorBlock" placeholder="Armor">
-                            <input type="text" id="weaponsBlock" placeholder="Weapons">
-                            <input type="text" id="itemsBlock" placeholder="Items">
+                        <div class=" card form-group p-3 bg-warning change">
+                            <input type="text" id="armorBlock" placeholder="Armor"
+                                   class="form-control">
+                          
+                            <input type="text" id="weaponsBlock" placeholder="Weapons"
+                                   class="form-control">
+                            <input type="text" id="itemsBlock" placeholder="Items"
+                                   class="form-control">
                             <button type="submit" class="btn btn-primary" id="submitEquipment">Submit Equipment
                             </button>
                         </div>
                     </form>
-                </div>
+                    </div>
+                
                 
                 <!--?????? RIGHT COL ?????-->
-                <div class="col-6" id="battleBlock">
+                <div class="col-xs-12 col-md-4 " id="battleBlock">
                     <form action="#">
-                        <div class=" card form-group p-3 bg-warning">
+                        <div class="form-group p-3 bg-warning change">
                             <input type="text" id="armorClass"
-                                   placeholder="Armor Class">
+                                   placeholder="Armor Class"
+                                   class="form-control">
                             <input type="text" id="initiativeBlock"
-                                   placeholder="Initiative">
+                                   placeholder="Initiative"
+                                   class="form-control">
                             <input type="text" id="weaponBlock"
-                                   placeholder="Weapons">
+                                   placeholder="Weapons"
+                                   class="form-control">
                             <input type="text" id="magicBlock"
-                                   placeholder="Magics">
+                                   placeholder="Magics"
+                                   class="form-control">
                             <button type="submit" class="btn btn-primary" id="submitBattleBloock">Submit Battle Block
                             </button>
                         
