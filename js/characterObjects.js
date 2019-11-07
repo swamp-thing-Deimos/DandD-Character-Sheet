@@ -96,7 +96,14 @@ var character = {
         magicBlock: 0
     },
     loadFlags: {
-        defaultFlag: false
+        emptyCharacterObject: true,
+        emptyGeneralObject: true,
+        emptyPrimeStatObject: true,
+        emptySkillStatObject: true,
+        emptyBackgroundObject: true,
+        emptyEquipmentObject: true,
+        emptySpellsObject: true,
+        emptyBattleObject: true
     }
 };
 
@@ -228,6 +235,7 @@ function setGeneral(e) {
     character.generalStats.health = document.getElementById('healthBlock').value;
     character.generalStats.speed = document.getElementById('speedBlock').value;
     // generateHealth();
+    character.loadFlags.emptyGeneralObject = false;
     if (character.generalStats.level !== 0) {
         character.primaryStats.proficiency = proficiencyBonusNumber();
         document.getElementById('profStat').value = character.primaryStats.proficiency;
@@ -259,8 +267,9 @@ function setPrimary(e) {
     character.primaryStats.wisdom = document.getElementById('wisStat').value;
     character.primaryStats.charisma = document.getElementById('chaStat').value;
     primaryStatsFixer();
-    runMainStatCalc();
     pullPrimary();
+    runMainStatCalc();
+    character.loadFlags.emptyPrimeStatObject = false;
     // generateHealth();
 }
 
@@ -306,52 +315,92 @@ function pullSave() {
 //function to push from html to the character.skillStats object
 function setSkills(e) {
     e.preventDefault();
-    character.skillStats.acrobatics = document.getElementById('acroStat').value;
-    character.skillStats.animalHandling = document.getElementById('animalStat').value;
-    character.skillStats.arcana = document.getElementById('arcanaStat').value;
-    character.skillStats.athletics = document.getElementById('athlStat').value;
-    character.skillStats.deception = document.getElementById('deceptStat').value;
-    character.skillStats.history = document.getElementById('histStat').value;
-    character.skillStats.insight = document.getElementById('insightStat').value;
-    character.skillStats.intimidation = document.getElementById('intimStat').value;
-    character.skillStats.investigation = document.getElementById('investStat').value;
-    character.skillStats.medicine = document.getElementById('mediStat').value;
-    character.skillStats.nature = document.getElementById('natStat').value;
-    character.skillStats.perception = document.getElementById('percStat').value;
-    character.skillStats.performance = document.getElementById('perfStat').value;
-    character.skillStats.persuasion = document.getElementById('persStat').value;
-    character.skillStats.religion = document.getElementById('reliStat').value;
-    character.skillStats.sleight = document.getElementById('sleightStat').value;
-    character.skillStats.stealth = document.getElementById('stealthStat').value;
-    character.skillStats.survival = document.getElementById('survStat').value;
+    character.skillStats.acrobatics = document.getElementById('acroMODIFY').value;
+    character.skillStats.animalHandling = document.getElementById('animalMODIFY').value;
+    character.skillStats.arcana = document.getElementById('arcanaMODIFY').value;
+    character.skillStats.athletics = document.getElementById('athlMODIFY').value;
+    character.skillStats.deception = document.getElementById('deceptMODIFY').value;
+    character.skillStats.history = document.getElementById('hisMODIFY').value;
+    character.skillStats.insight = document.getElementById('insightMODIFY').value;
+    character.skillStats.intimidation = document.getElementById('intimMODIFY').value;
+    character.skillStats.investigation = document.getElementById('investMODIFY').value;
+    character.skillStats.medicine = document.getElementById('mediMODIFY').value;
+    character.skillStats.nature = document.getElementById('natMODIFY').value;
+    character.skillStats.perception = document.getElementById('percMODIFY').value;
+    character.skillStats.performance = document.getElementById('perfMODIFY').value;
+    character.skillStats.persuasion = document.getElementById('persMODIFY').value;
+    character.skillStats.religion = document.getElementById('reliMODIFY').value;
+    character.skillStats.sleight = document.getElementById('sleightMODIFY').value;
+    character.skillStats.stealth = document.getElementById('stealthMODIFY').value;
+    character.skillStats.survival = document.getElementById('survMODIFY').value;
+    character.loadFlags.emptySkillStatObject=false;
 }
 // document.getElementById('submitSkills').onclick(function (event){setSkills(event)});
-function skillChanges(){
-
+function pullPrimeForSkills(){
+    document.getElementById('acroStat').value = character.savingThrowModifier.dexterity;
+    document.getElementById('animalStat').value = character.savingThrowModifier.wisdom;
+    document.getElementById('arcanaStat').value = character.savingThrowModifier.intelligence;
+    document.getElementById('athlStat').value = character.savingThrowModifier.strength;
+    document.getElementById('deceptStat').value = character.savingThrowModifier.charisma;
+    document.getElementById('histStat').value = character.savingThrowModifier.intelligence;
+    document.getElementById('insightStat').value = character.savingThrowModifier.wisdom;
+    document.getElementById('intimStat').value = character.savingThrowModifier.charisma;
+    document.getElementById('investStat').value = character.savingThrowModifier.intelligence;
+    document.getElementById('mediStat').value = character.savingThrowModifier.wisdom;
+    document.getElementById('natStat').value = character.savingThrowModifier.intelligence;
+    document.getElementById('percStat').value = character.savingThrowModifier.wisdom;
+    document.getElementById('perfStat').value = character.savingThrowModifier.charisma;
+    document.getElementById('persStat').value = character.savingThrowModifier.charisma;
+    document.getElementById('reliStat').value = character.savingThrowModifier.intelligence;
+    document.getElementById('sleightStat').value = character.savingThrowModifier.dexterity;
+    document.getElementById('stealthStat').value = character.savingThrowModifier.dexterity;
+    document.getElementById('survStat').value = character.savingThrowModifier.wisdom;
 }
 
-
+function skillMisc() {
+    document.getElementById('acroMISC').innerHTML = isProficientString(false);
+    document.getElementById('animalMISC').innerHTML = isProficientString(false);
+    document.getElementById('arcanaMISC').innerHTML = isProficientString(false);
+    document.getElementById('athlMISC').innerHTML = isProficientString(false);
+    document.getElementById('deceptMISC').innerHTML = isProficientString(false);
+    document.getElementById('hisMISC').innerHTML = isProficientString(false);
+    document.getElementById('insightMISC').innerHTML = isProficientString(false);
+    document.getElementById('intimMISC').innerHTML = isProficientString(false);
+    document.getElementById('investMISC').innerHTML = isProficientString(false);
+    document.getElementById('mediMISC').innerHTML = isProficientString(false);
+    document.getElementById('natMISC').innerHTML = isProficientString(false);
+    document.getElementById('percMISC').innerHTML = isProficientString(false);
+    document.getElementById('perfMISC').innerHTML = isProficientString(false);
+    document.getElementById('persMISC').innerHTML = isProficientString(false);
+    document.getElementById('reliMISC').innerHTML = isProficientString(false);
+    document.getElementById('sleightMISC').innerHTML = isProficientString(false);
+    document.getElementById('stealthMISC').innerHTML = isProficientString(false);
+    document.getElementById('survMISC').innerHTML = isProficientString(false);
+}
 
 //function to pull from the character.skillStats to the html
 function pullSkills() {
-    document.getElementById('acroStat').value = character.skillStats.acrobatics;
-    document.getElementById('animalStat').value = character.skillStats.animalHandling;
-    document.getElementById('arcanaStat').value = character.skillStats.arcana;
-    document.getElementById('athlStat').value = character.skillStats.athletics;
-    document.getElementById('deceptStat').value = character.skillStats.deception;
-    document.getElementById('histStat').value = character.skillStats.history;
-    document.getElementById('insightStat').value = character.skillStats.insight;
-    document.getElementById('intimStat').value = character.skillStats.intimidation;
-    document.getElementById('investStat').value = character.skillStats.investigation;
-    document.getElementById('mediStat').value = character.skillStats.medicine;
-    document.getElementById('natStat').value = character.skillStats.nature;
-    document.getElementById('percStat').value = character.skillStats.perception;
-    document.getElementById('perfStat').value = character.skillStats.performance;
-    document.getElementById('persStat').value = character.skillStats.persuasion;
-    document.getElementById('reliStat').value = character.skillStats.religion;
-    document.getElementById('sleightStat').value = character.skillStats.sleight;
-    document.getElementById('stealthStat').value = character.skillStats.stealth;
-    document.getElementById('survStat').value = character.skillStats.survival;
+    runSkillModifierCheck();
+    skillMisc();
+    pullPrimeForSkills();
+    document.getElementById('acroMODIFY').innerHTML = character.skillStats.acrobatics;
+    document.getElementById('animalMODIFY').innerHTML = character.skillStats.animalHandling;
+    document.getElementById('arcanaMODIFY').innerHTML = character.skillStats.arcana;
+    document.getElementById('athlMODIFY').innerHTML = character.skillStats.athletics;
+    document.getElementById('deceptMODIFY').innerHTML = character.skillStats.deception;
+    document.getElementById('hisMODIFY').innerHTML = character.skillStats.history;
+    document.getElementById('insightMODIFY').innerHTML = character.skillStats.insight;
+    document.getElementById('intimMODIFY').innerHTML = character.skillStats.intimidation;
+    document.getElementById('investMODIFY').innerHTML = character.skillStats.investigation;
+    document.getElementById('mediMODIFY').innerHTML = character.skillStats.medicine;
+    document.getElementById('natMODIFY').innerHTML = character.skillStats.nature;
+    document.getElementById('percMODIFY').innerHTML = character.skillStats.perception;
+    document.getElementById('perfMODIFY').innerHTML = character.skillStats.performance;
+    document.getElementById('persMODIFY').innerHTML = character.skillStats.persuasion;
+    document.getElementById('reliMODIFY').innerHTML = character.skillStats.religion;
+    document.getElementById('sleightMODIFY').innerHTML = character.skillStats.sleight;
+    document.getElementById('stealthMODIFY').innerHTML = character.skillStats.stealth;
+    document.getElementById('survMODIFY').innerHTML = character.skillStats.survival;
 }
 // document.getElementById('').onclick(pullSkills());
 
@@ -364,6 +413,7 @@ function setBackground(e) {
     character.backgroundInfo.flaws = document.getElementById('flawsBlock').value;
     character.backgroundInfo.languages = document.getElementById('langBlock').value;
     character.backgroundInfo.other = document.getElementById('other').value;
+    character.loadFlags.emptyBackgroundObject = false;
 }
 // document.getElementById('submitBackground').onclick(function (event){setBackground(event)});
 
@@ -383,6 +433,7 @@ function setFeatTraits(e) {
     e.preventDefault();
     character.featTraits.features = document.getElementById('featsBlock').value;
     character.featTraits.traits = document.getElementById('traitsBlock').value;
+    // character.loadFlags.
 }
 // document.getElementById('submitFeatTraits').onclick(function (event){setFeatTraits(event)});
 
@@ -472,6 +523,42 @@ submitFeatTraits.addEventListener('click', setFeatTraits);
 submitEquipment.addEventListener('click', setEquipment);
 submitSpells.addEventListener('click', setSpells);
 submitBattle.addEventListener('click', setBattle);
+
+//event listeners for stats
+
+var getGeneral = document.getElementById('#tab-1-li');
+var getPrimary = document.getElementById('#tab-2-li');
+var getSkills = document.getElementById('#tab-3-li');
+var getBackground = document.getElementById('#tab-4-li');
+var getTraitsAndEquipment = document.getElementById('#tab-5-li');
+var getSpells = document.getElementById('#tab-6-li');
+
+
+//tab 1 general stats
+getGeneral.addEventListener('click',function () {
+    if (character.loadFlags.emptyGeneralObject === false){
+        pullGeneral();
+    }
+});
+//tab 2 primary stats
+getPrimary.addEventListener('click',function () {
+   if (character.loadFlags.emptyPrimeStatObject === false){
+       pullPrimary();
+   }
+});
+
+// tab 3 skills
+getSkills.addEventListener('click',function () {
+    // if (character.loadFlags.emptySkillStatObject === false || character.loadFlags.emptyPrimeStatObject === false){
+        pullSkills();
+    // }
+});
+
+//tab 4 Background Info
+
+//tab 5 traits and equipment
+
+//tab 6 spells
 
 
 //Load character saved from a database
