@@ -32,6 +32,7 @@
   color: #000;
   background: #fff;
   width: 300px;
+  height: 400px;
   padding: 20px;
   margin: 30px auto;
   border-top: 10px solid #000;
@@ -53,4 +54,58 @@
 .bg-warning:after {
   right: -10px;
 }
+#dice-container {
+  background: url("../img/black-background.png") center;
+}
+#primary-container {
+  background-image: url("https://media.dnd.wizards.com/styles/second_hubpage_banner/public/images/head-banner/03_NEW-TO-DnD_Races_Heroes_Hero_140725.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#tab1 {
+  background-image: url("https://media.dnd.wizards.com/styles/second_hubpage_banner/public/images/head-banner/07_NewtoDnD_Hero_Locations.jpg") ;
+  background-size: cover;
+  background-position: -200px;
+}
+#tab4 {
+  background-image: url("https://media.dnd.wizards.com/styles/inline_block_multiple/public/images/inline-block-multiple/CurseofStrahd_thumb.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#tab5 {
+  background-image: url("https://media.dnd.wizards.com/styles/mosaic_thumbnail/public/mosaic/grid-thumb4.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.change {
+  width: auto;
+  height: auto;
+}
+#tab6 {
+  background-image: url("https://media.giphy.com/media/8wxieMlTxtNfi/giphy.gif");
+}
+/*#left-four {*/
+/*  background-image: url("https://media.dnd.wizards.com/styles/second_hubpage_banner/public/images/head-banner/DnDLive_Ann-WebBanner.jpg");*/
+/*  background-size: contain;*/
+/*}*/
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0
+}
+@media screen and (min-width: 768px) {
+  #primary-container {
+    padding: 0 10%;
+  }
+  #tab5 {
+    height: 410px;
+  }
+  .change {
+    height: 250px;
+  }
 
+}
