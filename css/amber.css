@@ -68,9 +68,11 @@
   background-position: -200px;
 }
 #tab4 {
-  background-image: url("https://media.dnd.wizards.com/styles/inline_block_multiple/public/images/inline-block-multiple/CurseofStrahd_thumb.jpg");
+  background-image: url("../img/fire-dnd.png");
   background-size: cover;
-  background-position: center;
+  background-position-x: -400px;
+
+
 }
 #tab5 {
   background-image: url("https://media.dnd.wizards.com/styles/mosaic_thumbnail/public/mosaic/grid-thumb4.jpg");
@@ -97,6 +99,14 @@ video {
   left: 0;
   right: 0
 }
+#left-four {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#fire-hand {
+  background: none;
+}
 @media screen and (min-width: 768px) {
   #primary-container {
     padding: 0 10%;
@@ -107,5 +117,9 @@ video {
   .change {
     height: 250px;
   }
+  #tab4 {
+    background-position-x: 0;
+    background-position-y: -200px;
 
+  }
 }
