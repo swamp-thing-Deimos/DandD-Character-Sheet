@@ -554,6 +554,7 @@ getSkills.addEventListener('click',function () {
     // }
 });
 
+
 //tab 4 Background Info
 
 //tab 5 traits and equipment
