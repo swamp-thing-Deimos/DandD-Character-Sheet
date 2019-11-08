@@ -8,7 +8,7 @@ function calcThrow(mod, roll) {
 
 //function that takes in a string from d4 to d20 and returns a random number based on the dice or false with an alert
 //if the input is not one of the desired inputs
-function diceRoll(pickedDice){
+function diceRoll(pickedDice) {
     switch (pickedDice) {
         case 'd4':
             return Math.floor(Math.random() * 4) + 1;
@@ -32,17 +32,17 @@ function diceRoll(pickedDice){
 //function that pulls from the character object the character's level and calculates' the character
 function proficiencyBonusNumber() {
     let charLevel = parseInt(character.generalStats.level); //pull level from object
-    if (parseInt(charLevel) >16 && parseInt(charLevel) <= 20){
+    if (parseInt(charLevel) > 16 && parseInt(charLevel) <= 20) {
         return 6;
-    }else if (parseInt(charLevel) <= 16 && parseInt(charLevel) > 12){
+    } else if (parseInt(charLevel) <= 16 && parseInt(charLevel) > 12) {
         return 5;
-    }else if (parseInt(charLevel) <= 12 && parseInt(charLevel) > 8){
+    } else if (parseInt(charLevel) <= 12 && parseInt(charLevel) > 8) {
         return 4;
-    }else if (parseInt(charLevel) <= 8 && parseInt(charLevel) > 4){
+    } else if (parseInt(charLevel) <= 8 && parseInt(charLevel) > 4) {
         return 3;
-    }else  if (parseInt(charLevel) <= 4 && parseInt(charLevel) > 0){
+    } else if (parseInt(charLevel) <= 4 && parseInt(charLevel) > 0) {
         return 2;
-    }else {
+    } else {
         alert("ERROR proficiencyCheck charlevel input is not valid");
         return false;
     }
@@ -52,14 +52,14 @@ function criticalCheck(roll) {
     return parseInt(roll) === 1 ? "Critical Failure" : parseInt(roll) === 20 ? "Critical Success" : false;
 }
 
-function addMod(baseMod,isProficient){
+function addMod(baseMod, isProficient) {
     return isProficient ? baseMod + proficiencyBonusNumber() : baseMod;
 }
 
 function isProficientString(proficient) {
-    if (proficient){
-        return proficiencyBonusNumber()+" : Character is proficient";
-    }else return "0 : character not Proficient";
+    if (proficient === true) {
+        return proficiencyBonusNumber() + " : Character is proficient";
+    } else return "0 : character not Proficient";
 }
 
 function levelCheck(charlevel) {
@@ -76,29 +76,29 @@ function calcMod(charStat, bonusMod) {
     var modStat = 0;
     if (statTotal >= 20) {
         modStat = 5;
-    }else if (statTotal < 20 && statTotal >= 18) {
+    } else if (statTotal < 20 && statTotal >= 18) {
         modStat = 4;
-    }else if (statTotal < 18 && statTotal >= 16) {
+    } else if (statTotal < 18 && statTotal >= 16) {
         modStat = 3;
-    }else if (statTotal < 16 && statTotal >= 14) {
+    } else if (statTotal < 16 && statTotal >= 14) {
         modStat = 2;
-    }else if (statTotal < 14 && statTotal >= 12) {
+    } else if (statTotal < 14 && statTotal >= 12) {
         modStat = 1;
-    }else if (statTotal < 12 && statTotal >= 10) {
+    } else if (statTotal < 12 && statTotal >= 10) {
         modStat = 0;
-    }else if (statTotal < 10 && statTotal >= 8) {
+    } else if (statTotal < 10 && statTotal >= 8) {
         modStat = -1;
-    }else if (statTotal < 8 && statTotal >= 6) {
+    } else if (statTotal < 8 && statTotal >= 6) {
         modStat = -2;
-    }else if (statTotal < 6 && statTotal >= 4) {
+    } else if (statTotal < 6 && statTotal >= 4) {
         modStat = -3;
-    }else if (statTotal < 4 && statTotal >= 2) {
+    } else if (statTotal < 4 && statTotal >= 2) {
         modStat = -4;
-    }else if (statTotal < 2 && statTotal > 0) {
+    } else if (statTotal < 2 && statTotal > 0) {
         modStat = -5;
-    }else if (statTotal <= 0) {
+    } else if (statTotal <= 0) {
         modStat = -5;
-    }else {
+    } else {
         return "error";
     }
     return modStat;
@@ -106,33 +106,30 @@ function calcMod(charStat, bonusMod) {
 
 function checkAndFixPrimaryStats(stat) {
     stat = parseInt(stat);
-    if (stat > 20){
-         return 20;
-    }else if( stat < 1){
+    if (stat > 20) {
+        return 20;
+    } else if (stat < 1) {
         return 1;
-    }else if (!isNaN(stat)) {
+    } else if (!isNaN(stat)) {
         return stat;
-    }else return 10;
+    } else return 10;
 }
 
 // attack rolls
 function attackModifier(mainStatModifier) {
-    return parseInt(mainStatModifier)+ proficiencyBonusNumber();
+    return parseInt(mainStatModifier) + proficiencyBonusNumber();
 }
+
 //damage modifier (note: damage modifier is just the primary stat modifier used for that weapon type.
 //spell save DC
 function spellSaveDC(abilityModifier, specialMod) {
-    return 8+parseInt(abilityModifier)+proficiencyBonusNumber()+parseInt(specialMod);
+    return 8 + parseInt(abilityModifier) + proficiencyBonusNumber() + parseInt(specialMod);
 }
-
-
-
 
 
 // modifiers that use str: Athletics, extra: melee attacks
 
 var athleticBox = document.getElementById("athlStat");
-
 
 
 // modifiers that use dex: Acrobatics, Sleight of hand, Stealth, extra: ranged attacks
@@ -164,10 +161,8 @@ var performanceBox = document.getElementById("perfStat");
 var persuasionBox = document.getElementById("persStat");
 
 
-
-
 // hit dice rolls
-function pullClassHitDice(charClass){
+function pullClassHitDice(charClass) {
     switch (charClass) {
         case 'fighter':
             return playerClasses.fighter.hitDice;
@@ -200,8 +195,8 @@ function pullClassHitDice(charClass){
 
 }
 
-function healthRoll(startingLevel,hitDie, conMod) {
-    return startingLevel*diceRoll(hitDie) + conMod;
+function healthRoll(startingLevel, hitDie, conMod) {
+    return startingLevel * diceRoll(hitDie) + conMod;
 }
 
 function generateHealth() {
@@ -220,6 +215,7 @@ function primaryStatsFixer() {
     character.primaryStats.wisdom = checkAndFixPrimaryStats(character.primaryStats.wisdom);
     character.primaryStats.charisma = checkAndFixPrimaryStats(character.primaryStats.charisma);
 }
+
 //
 function runMainStatCalc() {
     character.savingThrowModifier.strength = calcMod(character.primaryStats.strength, 0);
@@ -232,24 +228,24 @@ function runMainStatCalc() {
 
 function runSkillModifierCheck() {
 
-    character.skillStats.acrobatics = addMod(character.savingThrowModifier.dexterity, determineIfProficient("acrobatics",character.generalStats.proficientSkills));
-    character.skillStats.animalHandling = addMod(character.savingThrowModifier.wisdom, determineIfProficient("animal handling",character.generalStats.proficientSkills));
-    character.skillStats.arcana = addMod(character.savingThrowModifier.intelligence, determineIfProficient("arcana",character.generalStats.proficientSkills));
-    character.skillStats.athletics = addMod(character.savingThrowModifier.strength, determineIfProficient("athletics",character.generalStats.proficientSkills));
-    character.skillStats.deception = addMod(character.savingThrowModifier.charisma, determineIfProficient("deception",character.generalStats.proficientSkills));
-    character.skillStats.history = addMod(character.savingThrowModifier.intelligence, determineIfProficient("history",character.generalStats.proficientSkills));
-    character.skillStats.insight = addMod(character.savingThrowModifier.wisdom, determineIfProficient("insight",character.generalStats.proficientSkills));
-    character.skillStats.intimidation = addMod(character.savingThrowModifier.charisma, determineIfProficient("intimidation",character.generalStats.proficientSkills));
-    character.skillStats.investigation = addMod(character.savingThrowModifier.intelligence, determineIfProficient("investigation",character.generalStats.proficientSkills));
-    character.skillStats.medicine = addMod(character.savingThrowModifier.wisdom, determineIfProficient("medicine",character.generalStats.proficientSkills));
-    character.skillStats.nature = addMod(character.savingThrowModifier.intelligence, determineIfProficient("nature",character.generalStats.proficientSkills));
-    character.skillStats.perception = addMod(character.savingThrowModifier.wisdom, determineIfProficient("perception",character.generalStats.proficientSkills));
-    character.skillStats.performance = addMod(character.savingThrowModifier.charisma, determineIfProficient("performance",character.generalStats.proficientSkills));
-    character.skillStats.persuasion = addMod(character.savingThrowModifier.charisma, determineIfProficient("persuasion",character.generalStats.proficientSkills));
-    character.skillStats.religion = addMod(character.savingThrowModifier.intelligence, determineIfProficient("religion",character.generalStats.proficientSkills));
-    character.skillStats.sleight = addMod(character.savingThrowModifier.dexterity, determineIfProficient("sleight of hand",character.generalStats.proficientSkills));
-    character.skillStats.stealth = addMod(character.savingThrowModifier.dexterity, determineIfProficient("stealth",character.generalStats.proficientSkills));
-    character.skillStats.survival = addMod(character.savingThrowModifier.wisdom, determineIfProficient("survival",character.generalStats.proficientSkills));
+    character.skillStats.acrobatics = addMod(character.savingThrowModifier.dexterity, determineIfProficient("acrobatics", character.generalStats.proficientSkills));
+    character.skillStats.animalHandling = addMod(character.savingThrowModifier.wisdom, determineIfProficient("animal handling", character.generalStats.proficientSkills));
+    character.skillStats.arcana = addMod(character.savingThrowModifier.intelligence, determineIfProficient("arcana", character.generalStats.proficientSkills));
+    character.skillStats.athletics = addMod(character.savingThrowModifier.strength, determineIfProficient("athletics", character.generalStats.proficientSkills));
+    character.skillStats.deception = addMod(character.savingThrowModifier.charisma, determineIfProficient("deception", character.generalStats.proficientSkills));
+    character.skillStats.history = addMod(character.savingThrowModifier.intelligence, determineIfProficient("history", character.generalStats.proficientSkills));
+    character.skillStats.insight = addMod(character.savingThrowModifier.wisdom, determineIfProficient("insight", character.generalStats.proficientSkills));
+    character.skillStats.intimidation = addMod(character.savingThrowModifier.charisma, determineIfProficient("intimidation", character.generalStats.proficientSkills));
+    character.skillStats.investigation = addMod(character.savingThrowModifier.intelligence, determineIfProficient("investigation", character.generalStats.proficientSkills));
+    character.skillStats.medicine = addMod(character.savingThrowModifier.wisdom, determineIfProficient("medicine", character.generalStats.proficientSkills));
+    character.skillStats.nature = addMod(character.savingThrowModifier.intelligence, determineIfProficient("nature", character.generalStats.proficientSkills));
+    character.skillStats.perception = addMod(character.savingThrowModifier.wisdom, determineIfProficient("perception", character.generalStats.proficientSkills));
+    character.skillStats.performance = addMod(character.savingThrowModifier.charisma, determineIfProficient("performance", character.generalStats.proficientSkills));
+    character.skillStats.persuasion = addMod(character.savingThrowModifier.charisma, determineIfProficient("persuasion", character.generalStats.proficientSkills));
+    character.skillStats.religion = addMod(character.savingThrowModifier.intelligence, determineIfProficient("religion", character.generalStats.proficientSkills));
+    character.skillStats.sleight = addMod(character.savingThrowModifier.dexterity, determineIfProficient("sleight of hand", character.generalStats.proficientSkills));
+    character.skillStats.stealth = addMod(character.savingThrowModifier.dexterity, determineIfProficient("stealth", character.generalStats.proficientSkills));
+    character.skillStats.survival = addMod(character.savingThrowModifier.wisdom, determineIfProficient("survival", character.generalStats.proficientSkills));
 }
 
 
@@ -286,27 +282,27 @@ function connectCharacterToClassObject(charClass) {
 }
 
 
-function grabRandomSkills(numberOfSkills,SkillArray) {
+function grabRandomSkills(numberOfSkills, SkillArray) {
     var proficientArray = [];
-    var allSkillsArray = ['acrobatics','animal handling','arcana','athletics','deception','history','insight',
-        'intimidation','investigation','medicine','nature','perception','religion','sleight of hand','stealth','survival'];
+    var allSkillsArray = ['acrobatics', 'animal handling', 'arcana', 'athletics', 'deception', 'history', 'insight',
+        'intimidation', 'investigation', 'medicine', 'nature', 'perception', 'religion', 'sleight of hand', 'stealth', 'survival'];
     var randomSkill;
-        for (var i = 0; i < numberOfSkills; i++) {
-            if (SkillArray[0] === 'all'){
-                randomSkill = Math.floor(Math.random() * allSkillsArray.length);
-                proficientArray.push(allSkillsArray[randomSkill]);
-            }else {
-                randomSkill = Math.floor(Math.random() * SkillArray.length);
-                proficientArray.push(SkillArray[randomSkill]);
-            }
+    for (var i = 0; i < numberOfSkills; i++) {
+        if (SkillArray[0] === 'all') {
+            randomSkill = Math.floor(Math.random() * allSkillsArray.length);
+            proficientArray.push(allSkillsArray[randomSkill]);
+        } else {
+            randomSkill = Math.floor(Math.random() * SkillArray.length);
+            proficientArray.push(SkillArray[randomSkill]);
         }
+    }
     return proficientArray;
 }
 
-function determineIfProficient(skillName,skillArray) {
+function determineIfProficient(skillName, skillArray) {
     var isProficient = false;
     skillArray.forEach(function (skill) {
-        if (skill === skillName){
+        if (skill === skillName) {
             isProficient = true;
         }
     });

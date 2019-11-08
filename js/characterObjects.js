@@ -14,7 +14,7 @@ var character = {
         level: 0,
         health: 0,
         speed: 0,
-        proficientSkills:[]
+        proficientSkills: []
     },
     // object to hold primary stats
     primaryStats: {
@@ -255,6 +255,7 @@ function pullGeneral(event) {
     document.getElementById('healthBlock').value = character.generalStats.health;
     document.getElementById('speedBlock').value = character.generalStats.speed;
 }
+
 // document.getElementById('').onclick(pullGeneral());
 
 // function to push primary stats into the character.primary object
@@ -270,10 +271,9 @@ function setPrimary(e) {
     primaryStatsFixer();
     pullPrimary();
     runMainStatCalc();
-    pullSkills();
     var classObject = connectCharacterToClassObject(character.generalStats.class);
-    character.generalStats.proficientSkills = grabRandomSkills(classObject.numberOfSkillChoices,classObject.skillChoices);
-
+    character.generalStats.proficientSkills = grabRandomSkills(classObject.numberOfSkillChoices, classObject.skillChoices);
+    pullSkills();
     character.loadFlags.emptyPrimeStatObject = false;
     // generateHealth();
 }
@@ -304,6 +304,7 @@ function setSave(e) {
     character.savingThrowModifier.wisdom = document.getElementById('wisSave').value;
     character.savingThrowModifier.charisma = document.getElementById('chaSave').value;
 }
+
 // document.getElementById('submitPrimary').onclick(function (event){setSave(event)});
 
 //function to pull from the character.savingThrowModifier to html
@@ -315,6 +316,7 @@ function pullSave() {
     document.getElementById('wisSave').value = character.savingThrowModifier.wisdom;
     document.getElementById('chaSave').value = character.savingThrowModifier.charisma;
 }
+
 // document.getElementById('').onclick(pullPrimary());
 
 //function to push from html to the character.skillStats object
@@ -338,10 +340,11 @@ function setSkills(e) {
     character.skillStats.sleight = document.getElementById('sleightMODIFY').value;
     character.skillStats.stealth = document.getElementById('stealthMODIFY').value;
     character.skillStats.survival = document.getElementById('survMODIFY').value;
-    character.loadFlags.emptySkillStatObject=false;
+    character.loadFlags.emptySkillStatObject = false;
 }
+
 // document.getElementById('submitSkills').onclick(function (event){setSkills(event)});
-function pullPrimeForSkills(){
+function pullPrimeForSkills() {
     document.getElementById('acroStat').value = character.savingThrowModifier.dexterity;
     document.getElementById('animalStat').value = character.savingThrowModifier.wisdom;
     document.getElementById('arcanaStat').value = character.savingThrowModifier.intelligence;
@@ -365,32 +368,32 @@ function pullPrimeForSkills(){
 function skillMisc() {
 
 
-    document.getElementById('acroMISC').innerHTML = isProficientString(determineIfProficient("acrobatics",character.generalStats.proficientSkills));
-    document.getElementById('animalMISC').innerHTML = isProficientString(determineIfProficient("animal handling",character.generalStats.proficientSkills));
-    document.getElementById('arcanaMISC').innerHTML = isProficientString(determineIfProficient("arcana",character.generalStats.proficientSkills));
-    document.getElementById('athlMISC').innerHTML = isProficientString(determineIfProficient("athletics",character.generalStats.proficientSkills));
-    document.getElementById('deceptMISC').innerHTML = isProficientString(determineIfProficient("deception",character.generalStats.proficientSkills));
-    document.getElementById('hisMISC').innerHTML = isProficientString(determineIfProficient("history",character.generalStats.proficientSkills));
-    document.getElementById('insightMISC').innerHTML = isProficientString(determineIfProficient("insight",character.generalStats.proficientSkills));
-    document.getElementById('intimMISC').innerHTML = isProficientString(determineIfProficient("intimidation",character.generalStats.proficientSkills));
-    document.getElementById('investMISC').innerHTML = isProficientString(determineIfProficient("investigation",character.generalStats.proficientSkills));
-    document.getElementById('mediMISC').innerHTML = isProficientString(determineIfProficient("medicine",character.generalStats.proficientSkills));
-    document.getElementById('natMISC').innerHTML = isProficientString(determineIfProficient("nature",character.generalStats.proficientSkills));
-    document.getElementById('percMISC').innerHTML = isProficientString(determineIfProficient("perception",character.generalStats.proficientSkills));
-    document.getElementById('perfMISC').innerHTML = isProficientString(determineIfProficient("performance",character.generalStats.proficientSkills));
-    document.getElementById('persMISC').innerHTML = isProficientString(determineIfProficient("persuasion",character.generalStats.proficientSkills));
-    document.getElementById('reliMISC').innerHTML = isProficientString(determineIfProficient("religion",character.generalStats.proficientSkills));
-    document.getElementById('sleightMISC').innerHTML = isProficientString(determineIfProficient("sleight of hand",character.generalStats.proficientSkills));
-    document.getElementById('stealthMISC').innerHTML = isProficientString(determineIfProficient("stealth",character.generalStats.proficientSkills));
-    document.getElementById('survMISC').innerHTML = isProficientString(determineIfProficient("survival",character.generalStats.proficientSkills));
+    document.getElementById('acroMISC').innerHTML = isProficientString(determineIfProficient("acrobatics", character.generalStats.proficientSkills));
+    document.getElementById('animalMISC').innerHTML = isProficientString(determineIfProficient("animal handling", character.generalStats.proficientSkills));
+    document.getElementById('arcanaMISC').innerHTML = isProficientString(determineIfProficient("arcana", character.generalStats.proficientSkills));
+    document.getElementById('athlMISC').innerHTML = isProficientString(determineIfProficient("athletics", character.generalStats.proficientSkills));
+    document.getElementById('deceptMISC').innerHTML = isProficientString(determineIfProficient("deception", character.generalStats.proficientSkills));
+    document.getElementById('hisMISC').innerHTML = isProficientString(determineIfProficient("history", character.generalStats.proficientSkills));
+    document.getElementById('insightMISC').innerHTML = isProficientString(determineIfProficient("insight", character.generalStats.proficientSkills));
+    document.getElementById('intimMISC').innerHTML = isProficientString(determineIfProficient("intimidation", character.generalStats.proficientSkills));
+    document.getElementById('investMISC').innerHTML = isProficientString(determineIfProficient("investigation", character.generalStats.proficientSkills));
+    document.getElementById('mediMISC').innerHTML = isProficientString(determineIfProficient("medicine", character.generalStats.proficientSkills));
+    document.getElementById('natMISC').innerHTML = isProficientString(determineIfProficient("nature", character.generalStats.proficientSkills));
+    document.getElementById('percMISC').innerHTML = isProficientString(determineIfProficient("perception", character.generalStats.proficientSkills));
+    document.getElementById('perfMISC').innerHTML = isProficientString(determineIfProficient("performance", character.generalStats.proficientSkills));
+    document.getElementById('persMISC').innerHTML = isProficientString(determineIfProficient("persuasion", character.generalStats.proficientSkills));
+    document.getElementById('reliMISC').innerHTML = isProficientString(determineIfProficient("religion", character.generalStats.proficientSkills));
+    document.getElementById('sleightMISC').innerHTML = isProficientString(determineIfProficient("sleight of hand", character.generalStats.proficientSkills));
+    document.getElementById('stealthMISC').innerHTML = isProficientString(determineIfProficient("stealth", character.generalStats.proficientSkills));
+    document.getElementById('survMISC').innerHTML = isProficientString(determineIfProficient("survival", character.generalStats.proficientSkills));
 }
 
 //function to pull from the character.skillStats to the html
 function pullSkills() {
-
     runSkillModifierCheck();
     skillMisc();
     pullPrimeForSkills();
+
     document.getElementById('acroMODIFY').innerHTML = character.skillStats.acrobatics;
     document.getElementById('animalMODIFY').innerHTML = character.skillStats.animalHandling;
     document.getElementById('arcanaMODIFY').innerHTML = character.skillStats.arcana;
@@ -410,6 +413,7 @@ function pullSkills() {
     document.getElementById('stealthMODIFY').innerHTML = character.skillStats.stealth;
     document.getElementById('survMODIFY').innerHTML = character.skillStats.survival;
 }
+
 // document.getElementById('').onclick(pullSkills());
 
 //function to push from html to the character.backgroundInfo
@@ -423,6 +427,7 @@ function setBackground(e) {
     character.backgroundInfo.other = document.getElementById('other').value;
     character.loadFlags.emptyBackgroundObject = false;
 }
+
 // document.getElementById('submitBackground').onclick(function (event){setBackground(event)});
 
 //function to pull from the character.backgroundInfo object to the html
@@ -434,6 +439,7 @@ function pullBackground() {
     document.getElementById('langBlock').value = character.backgroundInfo.languages;
     document.getElementById('other').value = character.backgroundInfo.other;
 }
+
 // document.getElementById('').onclick(pullBackground());
 
 //function to push from html to character.featTraits object
@@ -443,6 +449,7 @@ function setFeatTraits(e) {
     character.featTraits.traits = document.getElementById('traitsBlock').value;
     // character.loadFlags.
 }
+
 // document.getElementById('submitFeatTraits').onclick(function (event){setFeatTraits(event)});
 
 //function to pull from character.featTraits object to html
@@ -450,6 +457,7 @@ function pullFeatTraits() {
     document.getElementById('featsBlock').value = character.featTraits.features;
     document.getElementById('traitsBlock').value = character.featTraits.traits;
 }
+
 // document.getElementById('').onclick(pullFeatTraits());
 
 //function to push from html to character.equipment object
@@ -459,6 +467,7 @@ function setEquipment(e) {
     character.equipment.weapons.push(document.getElementById('weaponsBlock').value);
     character.equipment.items.push(document.getElementById('itemsBlock').value);
 }
+
 // document.getElementById('submitEquipment').onclick(function (event){setEquipment(event)});
 
 //function to pull from character.equipment to html
@@ -466,6 +475,7 @@ function pullEquipment() {
 
 
 }
+
 // document.getElementById('').onclick(pullEquipment());
 
 //function to pull from html to character.spells
@@ -482,12 +492,14 @@ function setSpells(e) {
     character.spells.levelEight.push(document.getElementById('8level').value);
     character.spells.levelNine.push(document.getElementById('9level').value);
 }
+
 // document.getElementById('submitSpells').onclick(function (event){setSpells(event)});
 
 //function to push from character.spells to html
 function pullSpells() {
 
 }
+
 // document.getElementById('').onclick(pullSpells());
 
 //function to pull from html to character.battle
@@ -498,6 +510,7 @@ function setBattle(e) {
     document.getElementById('weaponBlock').value = character.battle.weaponBlock;
     document.getElementById('magicBlock').value = character.battle.magicBlock;
 }
+
 // document.getElementById('submitBattleBloock').onclick(function (event){setBattle(event)});
 
 //function to push from character.battle object to html
@@ -508,6 +521,7 @@ function pullBattle() {
     character.battle.magicBlock = document.getElementById('magicBlock').value;
 
 }
+
 // document.getElementById('').onclick(pullBattle());
 
 // setting query triggers
@@ -570,7 +584,6 @@ submitBattle.addEventListener('click', setBattle);
 // });
 
 
-
 //tab 4 Background Info
 
 //tab 5 traits and equipment
@@ -581,7 +594,6 @@ submitBattle.addEventListener('click', setBattle);
 //Load character saved from a database
 function LoadCharacter() {
     //load from database to object
-
 
 
     //push database to front end.
