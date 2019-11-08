@@ -110,9 +110,9 @@ function checkAndFixPrimaryStats(stat) {
          return 20;
     }else if( stat < 1){
         return 1;
-    }else {
+    }else if (!isNaN(stat)) {
         return stat;
-    }
+    }else return 10;
 }
 
 // attack rolls
@@ -232,25 +232,88 @@ function runMainStatCalc() {
 
 function runSkillModifierCheck() {
 
-    character.skillStats.acrobatics = addMod(character.savingThrowModifier.dexterity, false);
-    character.skillStats.animalHandling = addMod(character.savingThrowModifier.wisdom, false);
-    character.skillStats.arcana = addMod(character.savingThrowModifier.intelligence, false);
-    character.skillStats.athletics = addMod(character.savingThrowModifier.strength, false);
-    character.skillStats.deception = addMod(character.savingThrowModifier.charisma, false);
-    character.skillStats.history = addMod(character.savingThrowModifier.intelligence, false);
-    character.skillStats.insight = addMod(character.savingThrowModifier.wisdom, false);
-    character.skillStats.intimidation = addMod(character.savingThrowModifier.charisma, false);
-    character.skillStats.investigation = addMod(character.savingThrowModifier.intelligence, false);
-    character.skillStats.medicine = addMod(character.savingThrowModifier.wisdom, false);
-    character.skillStats.nature = addMod(character.savingThrowModifier.intelligence, false);
-    character.skillStats.perception = addMod(character.savingThrowModifier.wisdom, false);
-    character.skillStats.performance = addMod(character.savingThrowModifier.charisma, false);
-    character.skillStats.persuasion = addMod(character.savingThrowModifier.charisma, false);
-    character.skillStats.religion = addMod(character.savingThrowModifier.intelligence, false);
-    character.skillStats.sleight = addMod(character.savingThrowModifier.dexterity, false);
-    character.skillStats.stealth = addMod(character.savingThrowModifier.dexterity, false);
-    character.skillStats.survival = addMod(character.savingThrowModifier.wisdom, false);
+    character.skillStats.acrobatics = addMod(character.savingThrowModifier.dexterity, determineIfProficient("acrobatics",character.generalStats.proficientSkills));
+    character.skillStats.animalHandling = addMod(character.savingThrowModifier.wisdom, determineIfProficient("animal handling",character.generalStats.proficientSkills));
+    character.skillStats.arcana = addMod(character.savingThrowModifier.intelligence, determineIfProficient("arcana",character.generalStats.proficientSkills));
+    character.skillStats.athletics = addMod(character.savingThrowModifier.strength, determineIfProficient("athletics",character.generalStats.proficientSkills));
+    character.skillStats.deception = addMod(character.savingThrowModifier.charisma, determineIfProficient("deception",character.generalStats.proficientSkills));
+    character.skillStats.history = addMod(character.savingThrowModifier.intelligence, determineIfProficient("history",character.generalStats.proficientSkills));
+    character.skillStats.insight = addMod(character.savingThrowModifier.wisdom, determineIfProficient("insight",character.generalStats.proficientSkills));
+    character.skillStats.intimidation = addMod(character.savingThrowModifier.charisma, determineIfProficient("intimidation",character.generalStats.proficientSkills));
+    character.skillStats.investigation = addMod(character.savingThrowModifier.intelligence, determineIfProficient("investigation",character.generalStats.proficientSkills));
+    character.skillStats.medicine = addMod(character.savingThrowModifier.wisdom, determineIfProficient("medicine",character.generalStats.proficientSkills));
+    character.skillStats.nature = addMod(character.savingThrowModifier.intelligence, determineIfProficient("nature",character.generalStats.proficientSkills));
+    character.skillStats.perception = addMod(character.savingThrowModifier.wisdom, determineIfProficient("perception",character.generalStats.proficientSkills));
+    character.skillStats.performance = addMod(character.savingThrowModifier.charisma, determineIfProficient("performance",character.generalStats.proficientSkills));
+    character.skillStats.persuasion = addMod(character.savingThrowModifier.charisma, determineIfProficient("persuasion",character.generalStats.proficientSkills));
+    character.skillStats.religion = addMod(character.savingThrowModifier.intelligence, determineIfProficient("religion",character.generalStats.proficientSkills));
+    character.skillStats.sleight = addMod(character.savingThrowModifier.dexterity, determineIfProficient("sleight of hand",character.generalStats.proficientSkills));
+    character.skillStats.stealth = addMod(character.savingThrowModifier.dexterity, determineIfProficient("stealth",character.generalStats.proficientSkills));
+    character.skillStats.survival = addMod(character.savingThrowModifier.wisdom, determineIfProficient("survival",character.generalStats.proficientSkills));
 }
+
+
+function connectCharacterToClassObject(charClass) {
+    switch (charClass) {
+        case "Barbarian":
+            return playerClasses.barbarian;
+        case "Bard":
+            return playerClasses.bard;
+        case "Cleric":
+            return playerClasses.cleric;
+        case "Druid":
+            return playerClasses.druid;
+        case "Fighter":
+            return playerClasses.fighter;
+        case "Monk":
+            return playerClasses.monk;
+        case "Paladin":
+            return playerClasses.paladin;
+        case "Ranger":
+            return playerClasses.ranger;
+        case "Rogue":
+            return playerClasses.rogue;
+        case "Sorcerer":
+            return playerClasses.sorcerer;
+        case "Warlock":
+            return playerClasses.warlock;
+        case "Wizard":
+            return playerClasses.wizard;
+        default:
+            alert("Error: unknown Class, pulling barbarian object to compensate!");
+            return playerClasses.barbarian;
+    }
+}
+
+
+function grabRandomSkills(numberOfSkills,SkillArray) {
+    var proficientArray = [];
+    var allSkillsArray = ['acrobatics','animal handling','arcana','athletics','deception','history','insight',
+        'intimidation','investigation','medicine','nature','perception','religion','sleight of hand','stealth','survival'];
+    var randomSkill;
+        for (var i = 0; i < numberOfSkills; i++) {
+            if (SkillArray[0] === 'all'){
+                randomSkill = Math.floor(Math.random() * allSkillsArray.length);
+                proficientArray.push(allSkillsArray[randomSkill]);
+            }else {
+                randomSkill = Math.floor(Math.random() * SkillArray.length);
+                proficientArray.push(SkillArray[randomSkill]);
+            }
+        }
+    return proficientArray;
+}
+
+function determineIfProficient(skillName,skillArray) {
+    var isProficient = false;
+    skillArray.forEach(function (skill) {
+        if (skill === skillName){
+            isProficient = true;
+        }
+    });
+    return isProficient;
+}
+
+
 
 
 

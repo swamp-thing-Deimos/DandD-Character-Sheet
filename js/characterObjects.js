@@ -13,7 +13,8 @@ var character = {
         class: "",
         level: 0,
         health: 0,
-        speed: 0
+        speed: 0,
+        proficientSkills:[]
     },
     // object to hold primary stats
     primaryStats: {
@@ -269,6 +270,10 @@ function setPrimary(e) {
     primaryStatsFixer();
     pullPrimary();
     runMainStatCalc();
+    pullSkills();
+    var classObject = connectCharacterToClassObject(character.generalStats.class);
+    character.generalStats.proficientSkills = grabRandomSkills(classObject.numberOfSkillChoices,classObject.skillChoices);
+
     character.loadFlags.emptyPrimeStatObject = false;
     // generateHealth();
 }
@@ -358,28 +363,31 @@ function pullPrimeForSkills(){
 }
 
 function skillMisc() {
-    document.getElementById('acroMISC').innerHTML = isProficientString(false);
-    document.getElementById('animalMISC').innerHTML = isProficientString(false);
-    document.getElementById('arcanaMISC').innerHTML = isProficientString(false);
-    document.getElementById('athlMISC').innerHTML = isProficientString(false);
-    document.getElementById('deceptMISC').innerHTML = isProficientString(false);
-    document.getElementById('hisMISC').innerHTML = isProficientString(false);
-    document.getElementById('insightMISC').innerHTML = isProficientString(false);
-    document.getElementById('intimMISC').innerHTML = isProficientString(false);
-    document.getElementById('investMISC').innerHTML = isProficientString(false);
-    document.getElementById('mediMISC').innerHTML = isProficientString(false);
-    document.getElementById('natMISC').innerHTML = isProficientString(false);
-    document.getElementById('percMISC').innerHTML = isProficientString(false);
-    document.getElementById('perfMISC').innerHTML = isProficientString(false);
-    document.getElementById('persMISC').innerHTML = isProficientString(false);
-    document.getElementById('reliMISC').innerHTML = isProficientString(false);
-    document.getElementById('sleightMISC').innerHTML = isProficientString(false);
-    document.getElementById('stealthMISC').innerHTML = isProficientString(false);
-    document.getElementById('survMISC').innerHTML = isProficientString(false);
+
+
+    document.getElementById('acroMISC').innerHTML = isProficientString(determineIfProficient("acrobatics",character.generalStats.proficientSkills));
+    document.getElementById('animalMISC').innerHTML = isProficientString(determineIfProficient("animal handling",character.generalStats.proficientSkills));
+    document.getElementById('arcanaMISC').innerHTML = isProficientString(determineIfProficient("arcana",character.generalStats.proficientSkills));
+    document.getElementById('athlMISC').innerHTML = isProficientString(determineIfProficient("athletics",character.generalStats.proficientSkills));
+    document.getElementById('deceptMISC').innerHTML = isProficientString(determineIfProficient("deception",character.generalStats.proficientSkills));
+    document.getElementById('hisMISC').innerHTML = isProficientString(determineIfProficient("history",character.generalStats.proficientSkills));
+    document.getElementById('insightMISC').innerHTML = isProficientString(determineIfProficient("insight",character.generalStats.proficientSkills));
+    document.getElementById('intimMISC').innerHTML = isProficientString(determineIfProficient("intimidation",character.generalStats.proficientSkills));
+    document.getElementById('investMISC').innerHTML = isProficientString(determineIfProficient("investigation",character.generalStats.proficientSkills));
+    document.getElementById('mediMISC').innerHTML = isProficientString(determineIfProficient("medicine",character.generalStats.proficientSkills));
+    document.getElementById('natMISC').innerHTML = isProficientString(determineIfProficient("nature",character.generalStats.proficientSkills));
+    document.getElementById('percMISC').innerHTML = isProficientString(determineIfProficient("perception",character.generalStats.proficientSkills));
+    document.getElementById('perfMISC').innerHTML = isProficientString(determineIfProficient("performance",character.generalStats.proficientSkills));
+    document.getElementById('persMISC').innerHTML = isProficientString(determineIfProficient("persuasion",character.generalStats.proficientSkills));
+    document.getElementById('reliMISC').innerHTML = isProficientString(determineIfProficient("religion",character.generalStats.proficientSkills));
+    document.getElementById('sleightMISC').innerHTML = isProficientString(determineIfProficient("sleight of hand",character.generalStats.proficientSkills));
+    document.getElementById('stealthMISC').innerHTML = isProficientString(determineIfProficient("stealth",character.generalStats.proficientSkills));
+    document.getElementById('survMISC').innerHTML = isProficientString(determineIfProficient("survival",character.generalStats.proficientSkills));
 }
 
 //function to pull from the character.skillStats to the html
 function pullSkills() {
+
     runSkillModifierCheck();
     skillMisc();
     pullPrimeForSkills();
@@ -525,34 +533,42 @@ submitSpells.addEventListener('click', setSpells);
 submitBattle.addEventListener('click', setBattle);
 
 //event listeners for stats
+// TABS CLICK EVENTS DO NOT WORK******************************************
+// var getGeneral = document.getElementById('#tab-1-a');
+// var getPrimary = document.getElementById('#tab-2-a');
+//
+// var getBackground = document.getElementById('#tab-4-a');
+// var getTraitsAndEquipment = document.getElementById('#tab-5-a');
+// var getSpells = document.getElementById('#tab-6-a');
+//
+//
+// //tab 1 general stats
+// getGeneral.addEventListener('click',function () {
+//     if (character.loadFlags.emptyGeneralObject === false){
+//         pullGeneral();
+//     }
+// });
+// //tab 2 primary stats
+// getPrimary.addEventListener('click',function () {
+//    if (character.loadFlags.emptyPrimeStatObject === false){
+//        pullPrimary();
+//    }
+// });
+//
+// // tab 3 skills
+// $(document).ready(function () {
+//     // event.preventDefault();
+//     var getSkills = document.getElementById('#tab-3-a');
+//     $('#tab-3-a').click(function () {
+//         event.preventDefault();
+//     });
+//     // getSkills.addEventListener('click',function () {
+//     //     // if (character.loadFlags.emptySkillStatObject === false || character.loadFlags.emptyPrimeStatObject === false){
+//     //     pullSkills();
+//     //     // }
+//     // });
+// });
 
-var getGeneral = document.getElementById('#tab-1-li');
-var getPrimary = document.getElementById('#tab-2-li');
-var getSkills = document.getElementById('#tab-3-li');
-var getBackground = document.getElementById('#tab-4-li');
-var getTraitsAndEquipment = document.getElementById('#tab-5-li');
-var getSpells = document.getElementById('#tab-6-li');
-
-
-//tab 1 general stats
-getGeneral.addEventListener('click',function () {
-    if (character.loadFlags.emptyGeneralObject === false){
-        pullGeneral();
-    }
-});
-//tab 2 primary stats
-getPrimary.addEventListener('click',function () {
-   if (character.loadFlags.emptyPrimeStatObject === false){
-       pullPrimary();
-   }
-});
-
-// tab 3 skills
-getSkills.addEventListener('click',function () {
-    // if (character.loadFlags.emptySkillStatObject === false || character.loadFlags.emptyPrimeStatObject === false){
-        pullSkills();
-    // }
-});
 
 
 //tab 4 Background Info
