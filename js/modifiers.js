@@ -252,32 +252,46 @@ function runSkillModifierCheck() {
 function connectCharacterToClassObject(charClass) {
     switch (charClass) {
         case "Barbarian":
+            character.generalStats.class = "Barbarian";
             return playerClasses.barbarian;
         case "Bard":
+            character.generalStats.class = "Bard";
             return playerClasses.bard;
         case "Cleric":
+            character.generalStats.class = "Cleric";
             return playerClasses.cleric;
         case "Druid":
+            character.generalStats.class = "Druid";
             return playerClasses.druid;
         case "Fighter":
+            character.generalStats.class = "Fighter";
             return playerClasses.fighter;
         case "Monk":
+            character.generalStats.class = "Monk";
             return playerClasses.monk;
         case "Paladin":
+            character.generalStats.class = "Paladin";
             return playerClasses.paladin;
         case "Ranger":
+            character.generalStats.class = "Ranger";
             return playerClasses.ranger;
         case "Rogue":
+            character.generalStats.class = "Rogue";
             return playerClasses.rogue;
         case "Sorcerer":
+            character.generalStats.class = "Sorcerer";
             return playerClasses.sorcerer;
         case "Warlock":
+            character.generalStats.class = "Warlock";
             return playerClasses.warlock;
         case "Wizard":
+            character.generalStats.class = "Wizard";
             return playerClasses.wizard;
         default:
-            alert("Error: unknown Class, pulling barbarian object to compensate!");
-            return playerClasses.barbarian;
+            var classArray = ['Barbarian','Bard','Cleric','Druid','Fighter','Monk','Paladin','Ranger','Rogue','Sorcerer','Warlock','Wizard'];
+            var randClass = classArray[Math.floor(Math.random()*classArray.length)];
+            alert("Error: unknown Class, pulling "+randClass+" object to compensate!");
+            return connectCharacterToClassObject(randClass);
     }
 }
 
@@ -309,7 +323,42 @@ function determineIfProficient(skillName, skillArray) {
     return isProficient;
 }
 
-
+function connectCharacterToRaceObject(charRace){
+    switch (charRace) {
+        case 'Dwarf':
+            character.generalStats.race = 'Dwarf';
+            return playerRaces.dwarf;
+        case 'Elf':
+            character.generalStats.race = 'Elf';
+            return playerRaces.elf;
+        case 'Halfling':
+            character.generalStats.race = 'Halfling';
+            return playerRaces.halfling;
+        case 'Human':
+            character.generalStats.race = 'Human';
+            return playerRaces.human;
+        case 'Dragonborn':
+            character.generalStats.race = 'Dragonborn';
+            return playerRaces.dragonborn;
+        case 'Gnome':
+            character.generalStats.race = 'Gnome';
+            return playerRaces.gnome;
+        case 'Half-Elf':
+            character.generalStats.race = 'Half-Elf';
+            return playerRaces.halfElf;
+        case 'Half-Orc':
+            character.generalStats.race = 'Half-Orc';
+            return playerRaces.halfOrc;
+        case 'Tiefling':
+            character.generalStats.race = 'Tiefling';
+            return playerRaces.tiefling;
+        default:
+            var raceArray = ['Dwarf', 'Elf', 'Halfling', 'Human', 'Dragonborn', 'Gnome', 'Half-Elf', 'Half-Orc', 'Tiefling'];
+            var randRace = raceArray[Math.floor(Math.random() * raceArray.length)];
+            alert("ERROR: No Race submitted, inputting " + randRace +" as Race");
+            return connectCharacterToRaceObject(randRace);
+    }
+}
 
 
 

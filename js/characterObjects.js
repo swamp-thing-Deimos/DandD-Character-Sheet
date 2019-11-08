@@ -14,6 +14,7 @@ var character = {
         level: 0,
         health: 0,
         speed: 0,
+        proficientAttributes:[],
         proficientSkills: []
     },
     // object to hold primary stats
@@ -538,6 +539,7 @@ submitGeneral.addEventListener('click', setGeneral);
 submitPrimary.addEventListener('click', setPrimary);
 submitSave.addEventListener('click', setSave);
 submitSkills.addEventListener('click', setSkills);
+submitSkills.submit(false);
 submitBackground.addEventListener('click', setBackground);
 submitFeatTraits.addEventListener('click', setFeatTraits);
 submitEquipment.addEventListener('click', setEquipment);
@@ -605,8 +607,19 @@ function LoadCharacter() {
     pullFeatTraits();
     pullSpells();
 }
-
-
+// need to get jquery that isn't slim
+// function giveSaveThrowBackground() {
+//
+//     document.getElementById('#acroMISC').style.backgroundColor = 'white';
+//     $('#acroMODIFY').css({'background-color':'white','border-radius':'5px'});
+//     $('#animalMISC').css('color','red');
+//
+//
+//
+//
+//
+// }
+// giveSaveThrowBackground();
 
 
 
