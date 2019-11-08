@@ -366,26 +366,24 @@ function pullPrimeForSkills() {
 }
 
 function skillMisc() {
-
-
-    document.getElementById('acroMISC').innerHTML = isProficientString(determineIfProficient("acrobatics", character.generalStats.proficientSkills));
-    document.getElementById('animalMISC').innerHTML = isProficientString(determineIfProficient("animal handling", character.generalStats.proficientSkills));
-    document.getElementById('arcanaMISC').innerHTML = isProficientString(determineIfProficient("arcana", character.generalStats.proficientSkills));
-    document.getElementById('athlMISC').innerHTML = isProficientString(determineIfProficient("athletics", character.generalStats.proficientSkills));
-    document.getElementById('deceptMISC').innerHTML = isProficientString(determineIfProficient("deception", character.generalStats.proficientSkills));
-    document.getElementById('hisMISC').innerHTML = isProficientString(determineIfProficient("history", character.generalStats.proficientSkills));
-    document.getElementById('insightMISC').innerHTML = isProficientString(determineIfProficient("insight", character.generalStats.proficientSkills));
-    document.getElementById('intimMISC').innerHTML = isProficientString(determineIfProficient("intimidation", character.generalStats.proficientSkills));
-    document.getElementById('investMISC').innerHTML = isProficientString(determineIfProficient("investigation", character.generalStats.proficientSkills));
-    document.getElementById('mediMISC').innerHTML = isProficientString(determineIfProficient("medicine", character.generalStats.proficientSkills));
-    document.getElementById('natMISC').innerHTML = isProficientString(determineIfProficient("nature", character.generalStats.proficientSkills));
-    document.getElementById('percMISC').innerHTML = isProficientString(determineIfProficient("perception", character.generalStats.proficientSkills));
-    document.getElementById('perfMISC').innerHTML = isProficientString(determineIfProficient("performance", character.generalStats.proficientSkills));
-    document.getElementById('persMISC').innerHTML = isProficientString(determineIfProficient("persuasion", character.generalStats.proficientSkills));
-    document.getElementById('reliMISC').innerHTML = isProficientString(determineIfProficient("religion", character.generalStats.proficientSkills));
-    document.getElementById('sleightMISC').innerHTML = isProficientString(determineIfProficient("sleight of hand", character.generalStats.proficientSkills));
-    document.getElementById('stealthMISC').innerHTML = isProficientString(determineIfProficient("stealth", character.generalStats.proficientSkills));
-    document.getElementById('survMISC').innerHTML = isProficientString(determineIfProficient("survival", character.generalStats.proficientSkills));
+    document.getElementById('acroMISC').innerHTML = isProficientString(determineIfProficient("acrobatics", character.generalStats.proficientSkills),"acrobatics");
+    document.getElementById('animalMISC').innerHTML = isProficientString(determineIfProficient("animal handling", character.generalStats.proficientSkills),"animal handling");
+    document.getElementById('arcanaMISC').innerHTML = isProficientString(determineIfProficient("arcana", character.generalStats.proficientSkills),"arcana");
+    document.getElementById('athlMISC').innerHTML = isProficientString(determineIfProficient("athletics", character.generalStats.proficientSkills),"athletics");
+    document.getElementById('deceptMISC').innerHTML = isProficientString(determineIfProficient("deception", character.generalStats.proficientSkills),"deception");
+    document.getElementById('hisMISC').innerHTML = isProficientString(determineIfProficient("history", character.generalStats.proficientSkills),"history");
+    document.getElementById('insightMISC').innerHTML = isProficientString(determineIfProficient("insight", character.generalStats.proficientSkills),"insight");
+    document.getElementById('intimMISC').innerHTML = isProficientString(determineIfProficient("intimidation", character.generalStats.proficientSkills),"intimidation");
+    document.getElementById('investMISC').innerHTML = isProficientString(determineIfProficient("investigation", character.generalStats.proficientSkills),"investigation");
+    document.getElementById('mediMISC').innerHTML = isProficientString(determineIfProficient("medicine", character.generalStats.proficientSkills),"medicine");
+    document.getElementById('natMISC').innerHTML = isProficientString(determineIfProficient("nature", character.generalStats.proficientSkills),"nature");
+    document.getElementById('percMISC').innerHTML = isProficientString(determineIfProficient("perception", character.generalStats.proficientSkills),"perception");
+    document.getElementById('perfMISC').innerHTML = isProficientString(determineIfProficient("performance", character.generalStats.proficientSkills),"performance");
+    document.getElementById('persMISC').innerHTML = isProficientString(determineIfProficient("persuasion", character.generalStats.proficientSkills),"persuasion");
+    document.getElementById('reliMISC').innerHTML = isProficientString(determineIfProficient("religion", character.generalStats.proficientSkills),"religion");
+    document.getElementById('sleightMISC').innerHTML = isProficientString(determineIfProficient("sleight of hand", character.generalStats.proficientSkills),"sleight of hand");
+    document.getElementById('stealthMISC').innerHTML = isProficientString(determineIfProficient("stealth", character.generalStats.proficientSkills),"stealth");
+    document.getElementById('survMISC').innerHTML = isProficientString(determineIfProficient("survival", character.generalStats.proficientSkills),"survival");
 }
 
 //function to pull from the character.skillStats to the html

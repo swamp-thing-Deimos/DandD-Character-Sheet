@@ -56,10 +56,10 @@ function addMod(baseMod, isProficient) {
     return isProficient ? baseMod + proficiencyBonusNumber() : baseMod;
 }
 
-function isProficientString(proficient) {
+function isProficientString(proficient,skill) {
     if (proficient === true) {
-        return proficiencyBonusNumber() + " : Character is proficient";
-    } else return "0 : character not Proficient";
+        return proficiencyBonusNumber() + " : Character is proficient in " +skill;
+    } else return "0 : character not Proficient in "+ skill;
 }
 
 function levelCheck(charlevel) {
